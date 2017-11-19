@@ -1,0 +1,65 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<div id="tx_tp3ratings-{ratingsdata.ref}">
+	<div class="tx_tp3ratings">
+		<div class="tx-tp3ratings-display-wrap" id="tx_tp3ratings-wait-{ratingsdata.ref}">
+			<img src="typo3conf/ext/tp3ratings/Resources/Public/Css/working.gif" width="16" height="16" alt=""/>
+			<f:if condition="{ratingsdata.submittext}">
+				<f:then>
+					{ratingsdata.submittext}
+				</f:then>
+				<f:else>
+					<f:translate key="api_submitting" />
+				</f:else>
+			</f:if>
+		</div>
+		<div id="tx_tp3ratings-display-{ratingsdata.ref}">
+			<div class="tx_tp3ratings-display">
+				<div class="tx_tp3ratings-vote-bar" style="width: {ratingsdata.barwidth}px">
+						<f:render partial="Ratingsdata/Votelink" arguments="{options:ratingsdata.options}" />
+					<div class="tx_tp3ratings-cleaner"></div>
+				</div>
+			</div>
+			<div class="tx_tp3ratings-text">
+					{ratingstext}<br>
+				<f:if condition="{ratingsdata.tip}">
+					<f:then>
+						{ratingsdata.tip}
+					</f:then>
+					<f:else>
+						<f:translate key="api_tip" />
+					</f:else>
+				</f:if>
+			</div>
+			<f:if condition="{ratingsdata.disableMicrodata} < 1">
+				<f:then>
+					<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+						<meta itemprop="worstRating" content="{ratingsdata.worstRating}">
+						<meta itemprop="ratingValue" content="{ratingsdata.ratingValue}"/>
+						<meta itemprop="bestRating" content="{ratingsdata.bestRating}"/>
+						<meta itemprop="reviewCount" content="{ratingsdata.reviewCount}"/>
+						<meta itemprop="ratingCount" content="{ratingsdata.ratingCount}"/>
+					</div>
+				</f:then>
+
+			</f:if>
+
+		</div>
+	</div>
+</div>
+
+</f:section>
+</html>

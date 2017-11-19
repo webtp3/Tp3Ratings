@@ -1,0 +1,19 @@
+{
+    "name": "Tp3/Tp3ratings",
+    "type": "typo3-cms-extension",
+    "description" : "ratings & microdata 4 tp3",
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=5.3 <7.2",
+        "typo3/cms-core": "^7.6|| ^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tp3\\Tp3ratings\\": "Classes"
+        }
+    },
+    "replace": {
+        "tp3ratings": "self.version"
+    }
+    
+}

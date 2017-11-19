@@ -1,0 +1,12 @@
+plugin.tx_tp3ratings {
+	view {
+		# cat=plugin.tx_tp3ratings/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:tp3ratings/Resources/Private/Templates/
+		# cat=plugin.tx_tp3ratings/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:tp3ratings/Resources/Private/Partials/
+		# cat=plugin.tx_tp3ratings/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:tp3ratings/Resources/Private/Layouts/
+	}
+
+	settings.ajaxPageType = 1337
+}

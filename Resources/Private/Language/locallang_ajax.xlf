@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-11-15T18:23:16Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="bad_rating_value" xml:space="preserve">
+				<source>Error: bad rating value</source>
+			</trans-unit>
+			<trans-unit id="wrong_check_value" xml:space="preserve">
+				<source>Error: bad check value</source>
+			</trans-unit>
+			<trans-unit id="bad_ref_value" xml:space="preserve">
+				<source>Error: bad reference value</source>
+			</trans-unit>
+			<trans-unit id="bad_conf_value" xml:space="preserve">
+				<source>Error: bad configuration value</source>
+			</trans-unit>
+			<trans-unit id="bad_pid_value" xml:space="preserve">
+				<source>Error: bad pid value</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

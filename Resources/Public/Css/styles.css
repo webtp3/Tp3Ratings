@@ -1,0 +1,19 @@
+.tx_tp3ratings { position: relative; left: 0; top: 0; padding-top: 16px; margin: 5px 5px; }
+	.tx_tp3ratings-display { position: absolute; left: 0; top: 0; height: 12px; }
+		.tx_tp3ratings-vote-bar { position: absolute; left: 0; top: 0; display: inline-flex;width: 100%; height: 12px; font-size: 1px; }
+
+.tx_tp3ratings-vote-bar a span.texticon-inner-icon.glyphicon.glyphicon-star {
+	color:#fff;
+	font-size: 12pt;
+ }
+.tx_tp3ratings-vote-bar a.voted span.texticon-inner-icon.glyphicon.glyphicon-star {
+	color:#006699;
+}
+			.tx_tp3ratings-vote-bar DIV A.tx_tp3ratings-star-1 { left: 0px; width: 11px; z-index: 5; }
+			.tx_tp3ratings-vote-bar DIV A.tx_tp3ratings-star-2 { left: 0px; width: 22px; z-index: 4; }
+			.tx_tp3ratings-vote-bar DIV A.tx_tp3ratings-star-3 { left: 0px; width: 33px; z-index: 3; }
+			.tx_tp3ratings-vote-bar DIV A.tx_tp3ratings-star-4 { left: 0px; width: 44px; z-index: 2; }
+			.tx_tp3ratings-vote-bar DIV A.tx_tp3ratings-star-5 { left: 0px; width: 55px; z-index: 1; }
+			.tx_tp3ratings-cleaner { clear: left; }
+	.tx_tp3ratings-display-wrap { position: absolute; left: 0; top: 0; font-size: 12px; visibility: hidden; z-index: 1; }
+			.tx_tp3ratings-display-wrap IMG { float: left; margin-right: 5px; }

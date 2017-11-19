@@ -1,0 +1,50 @@
+
+plugin.tx_extbase {
+    persistence {
+        classes {
+             Tp3\Tp3ratings\Domain\Model\Iplog {
+		        mapping {
+		          tableName = tx_tp3ratings_domain_model_iplog
+		          recordType = Tp3\Tp3ratings\Domain\Model\Iplog
+		             columns {
+                            ref.mapOnProperty = Tp3\Tp3ratings\Domain\Model\Ratinsgdata
+                     }
+		         }
+		         subclasses {
+                                     Tp3\Tp3ratings\Domain\Model\Ratinsgdata = Tp3\Tp3ratings\Domain\Model\Ratinsgdata
+                  }
+		      }
+
+             Tp3\Tp3ratings\Domain\Model\Ratinsgdata {
+                mapping {
+                    tableName = tx_tp3ratings_domain_model_ratingsdata
+                    recordType = Tp3\Tp3ratings\Domain\Model\Ratingsdata
+                    columns {
+
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+plugin.tx_tp3ratings {
+	view {
+		templateRootPath = {$plugin.tx_tp3ratings.view.templateRootPath}
+		partialRootPath = {$plugin.tx_tp3ratings.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_tp3ratings.view.layoutRootPath}
+	}
+	settings {
+		ajaxPageType = {$plugin.tx_tp3ratings.settings.ajaxPageType}
+	}
+}
+
+page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
+page.includeJSFooterlibs.tp3ratings = EXT:tp3ratings/Resources/Public/Javascript/tp3ratings.js
+
+plugin.tx_news {
+	view {
+		widget.Tx_News_ViewHelpers_Widget_PaginateViewHelper.templateRootPath = EXT:tp3ratings/Resources/Private/Templates/News/
+	}
+}

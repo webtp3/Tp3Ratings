@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-11-15T18:22:06Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve" approved="yes">
+				<source>Ratings</source>
+				<target>Bewertungen</target>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
+				<source>Modern AJAX-based rating system</source>
+				<target>Bewertungssystem mit Sternen (auf AJAX basierend)</target>
+			</trans-unit>
+			<trans-unit id="api_rating" xml:space="preserve" approved="yes">
+				<source>Rating: %1$.1f of %2$d. %3$d vote(s).</source>
+				<target>%1$.1f von %2$d Sternen. %3$d Bewertung(en).</target>
+			</trans-unit>
+			<trans-unit id="api_not_rated" xml:space="preserve" approved="yes">
+				<source>Not rated yet. Be the first who rates this item!</source>
+				<target>Aktuell hat noch niemand eine Bwertung abgegeben.</target>
+			</trans-unit>
+			<trans-unit id="api_submitting" xml:space="preserve" approved="yes">
+				<source>Submitting your vote...</source>
+				<target>Ihre Bewertung wurde hinzugefügt...</target>
+			</trans-unit>
+			<trans-unit id="api_already_rated" xml:space="preserve" approved="yes">
+				<source>You have rated this item already.</source>
+				<target>Es wurde bereits eine Bwertung abgegeben.</target>
+			</trans-unit>
+			<trans-unit id="api_already_thx" xml:space="preserve">
+                <source>Danke für Ihre Bewertung.</source>
+            </trans-unit>
+			<trans-unit id="api_tip" xml:space="preserve" approved="yes">
+				<source>Click the rating bar to rate this item.</source>
+				<target>Zum Bewerten bitte auf den gewünschten Stern drücken.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

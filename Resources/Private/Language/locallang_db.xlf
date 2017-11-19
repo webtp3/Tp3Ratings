@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-11-15T18:24:37Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="tx_tp3ratings_domain_model_tp3feratings">
+                <source>tp3 Ratings FE</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_tp3feratings.description">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_ratingsdata">
+                <source>Ratingsdata</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_ratingsdata.rating">
+                <source>Rating</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_ratingsdata.votecount">
+                <source>Votecount</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_ratingsdata.ref">
+                <source>Ref</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_iplog">
+                <source>Iplog</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_iplog.ip">
+                <source>Ip</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_iplog.ref">
+                <source>Ref</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_iplog.feuser">
+                <source>Feuser</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_pages">
+                <source>Pages</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_pages.pages">
+                <source>Pages</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_feuser">
+                <source>Feuser</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_data" xml:space="preserve">
+				<source>Alle Bewertungen</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_data.reference" xml:space="preserve">
+				<source>einzelne Bewertung:</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_data.rating" xml:space="preserve">
+				<source>durchschnittliche Bewertung:</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_data.vote_count" xml:space="preserve">
+				<source>Anzahl der Bewertungen:</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_iplog" xml:space="preserve">
+				<source>IP der Bewertung</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_iplog.reference" xml:space="preserve">
+				<source>Bewertungsobjekt:</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_iplog.crdate" xml:space="preserve">
+				<source>Bewertet am:</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_iplog.ip" xml:space="preserve">
+				<source>IP-Adresse:</source>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_pi1" xml:space="preserve">
+				<source>Bewertungen</source>
+			</trans-unit>
+			<trans-unit id="moduleFunction.tx_tp3ratings_modfunc1" xml:space="preserve">
+				<source>Bewertungen</source>
+			</trans-unit>
+			<trans-unit id="tt_news.tx_tp3ratings_enable" xml:space="preserve">
+				<source>Bewertung freischalten</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

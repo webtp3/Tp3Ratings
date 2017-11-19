@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-11-07T18:29:49Z" product-name="tp3ratings">
+		<header/>
+		<body>
+			<trans-unit id="tx_tp3ratings_domain_model_tp3feratings">
+				<source>tp3 Ratings FE</source>
+			</trans-unit>
+			<trans-unit id="tx_tp3ratings_domain_model_tp3feratings.description">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="ip.description">
+				<source>ip</source>
+			</trans-unit>
+			<trans-unit id="ref.description">
+				<source>ref</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
