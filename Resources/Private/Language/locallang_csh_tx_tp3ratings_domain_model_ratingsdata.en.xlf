@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="de" datatype="plaintext" original="messages" date="2017-11-07T18:29:49Z" product-name="tp3ratings">
+	<file source-language="de" target-language="en" datatype="plaintext" original="messages" date="2017-11-07T18:29:49Z" product-name="tp3ratings">
 		<header/>
 		<body>
 			<trans-unit id="tx_tp3ratings_domain_model_tp3feratings">
@@ -15,11 +15,8 @@
 			<trans-unit id="votecount.description">
 				<source>votecount</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.template_file">
-                <source>Templatefile</source>
-            </trans-unit>
-            <trans-unit id="tt_content.pi_flexform.storagepage">
-				<source>storage</source>
+			<trans-unit id="ref.description">
+				<source>ref</source>
 			</trans-unit>
 		</body>
 	</file>

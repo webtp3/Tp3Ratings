@@ -1,4 +1,6 @@
 <?php
+// TODO: ContentRepository instead of static ref
+
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata',
@@ -62,6 +64,17 @@ return [
                 'type' => 'passthrough',
             ],
         ],*/
+        'pi_flexform' => [
+            'label' => 'tp3 Konfig',
+            'displayCond' => '',
+            'config' => [
+                'type' => 'flex',
+                'ds_pointerField' => 'pi_flexform',
+                'ds' => [
+                    'default' => 'FILE:EXT:tp3ratings/Configuration/FlexForms/flexform_ds.xml',
+                ],
+            ],
+        ],
 		't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="de" datatype="plaintext" original="messages" date="2017-11-15T18:24:37Z" product-name="tp3ratings">
+	<file source-language="de" target-language="en" datatype="plaintext" original="messages" date="2017-11-15T18:24:37Z" product-name="tp3ratings">
 		<header/>
 		<body>
 			<trans-unit id="tx_tp3ratings_domain_model_tp3feratings">
@@ -76,7 +76,7 @@
 				<source>Bewertung freischalten</source>
 			</trans-unit>
 			<trans-unit id="tx_tp3ratings_debug" xml:space="preserve">
-                      <source>DEBUG aktivieren</source>
+            				<source>DEBUG active</source>
             </trans-unit>
 		</body>
 	</file>

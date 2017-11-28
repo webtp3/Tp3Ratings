@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file  source-language="de"  datatype="plaintext" original="messages" date="2017-11-15T18:23:16Z" product-name="tp3ratings">
+	<file source-language="de" target-language="en" datatype="plaintext" original="messages" date="2017-11-15T18:23:16Z" product-name="tp3ratings">
 		<header/>
 		<body>
 			<trans-unit id="bad_rating_value" xml:space="preserve">
+				<target>Error: bad rating value</target>
 				<source>Error: falscher Bewertungswert</source>
+
 			</trans-unit>
 			<trans-unit id="wrong_check_value" xml:space="preserve">
 				<source>Error: falsche Prüfsumme</source>
+                <target>Error: bad check value</target>
 			</trans-unit>
 			<trans-unit id="bad_ref_value" xml:space="preserve">
 				<source>Error: fehlerhafter Bezug</source>
+                <target>Error: bad reference value</target>
 			</trans-unit>
 			<trans-unit id="bad_conf_value" xml:space="preserve">
 				<source>Error: Fehler in der Konfiguration</source>
+
+				<target>Error: bad configuration value</target>
 			</trans-unit>
 			<trans-unit id="bad_pid_value" xml:space="preserve">
 				<source>Error: Falsche Seite</source>
+
+				<target>Error: bad pid value</target>
 			</trans-unit>
 		</body>
 	</file>

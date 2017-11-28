@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" target-language="en" datatype="plaintext" original="messages" date="2017-11-15T18:22:06Z" product-name="tp3ratings">
+		<header/>
+		<body>
+		            <trans-unit id="pi1_title" xml:space="preserve" approved="yes">
+        				<target>Ratings</target>
+        				<source>Bewertungen</source>
+        			</trans-unit>
+        			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
+        				<target>Modern AJAX-based rating system</target>
+        				<source>Bewertungssystem mit Sternen (auf AJAX basierend)</source>
+        			</trans-unit>
+        			<trans-unit id="api_rating" xml:space="preserve" approved="yes">
+        				<target>Rating: %1$.1f of %2$d. %3$d vote(s).</target>
+        				<source>%1$.1f von %2$d Sternen. %3$d Bewertung(en).</source>
+        			</trans-unit>
+        			<trans-unit id="api_not_rated" xml:space="preserve" approved="yes">
+        				<target>Not rated yet. Be the first who rates this item!</target>
+        				<source>Aktuell hat noch niemand eine Bwertung abgegeben.</source>
+        			</trans-unit>
+        			<trans-unit id="api_submitting" xml:space="preserve" approved="yes">
+        				<target>Submitting your vote...</target>
+        				<source>Ihre Bewertung wurde hinzugefügt...</source>
+        			</trans-unit>
+        			<trans-unit id="api_already_rated" xml:space="preserve" approved="yes">
+        				<target>You have rated this item already.</target>
+        				<source>Es wurde bereits eine Bwertung abgegeben.</source>
+        			</trans-unit>
+        			<trans-unit id="api_already_thx" xml:space="preserve">
+                        <target>Danke für Ihre Bewertung.</target>
+                    </trans-unit>
+        			<trans-unit id="api_tip" xml:space="preserve" approved="yes">
+        				<target>Click the rating bar to rate this item.</target>
+        				<source>Zum Bewerten bitte auf den gewünschten Stern drücken.</source>
+        			</trans-unit>
+		</body>
+	</file>
+</xliff>

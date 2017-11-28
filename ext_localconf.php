@@ -25,6 +25,11 @@ call_user_func(
          */
         $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['rating'] = 'EXT:tp3ratings/Classes/Renderer/Tp3Bootstrap.php';//Tp3\Tp3ratings\Controller\RatingsdataController::class . '::RatingAction';//
 
+        /***************
+         * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades
+         */
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Tp3\Tp3ratings\Updates\Tp3ratingsContentElementUpdate::class]
+            = \Tp3\Tp3ratings\Updates\Tp3RatingsContentElementUpdate::class;
 	// wizards
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
 		'mod {

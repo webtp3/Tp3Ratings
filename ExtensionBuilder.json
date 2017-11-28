@@ -144,9 +144,9 @@
             "disableVersioning": false,
             "skipGenerateDocumentationTemplate": false,
             "sourceLanguage": "de",
-            "state": "beta",
+            "state": "stable",
             "targetVersion": "7.6.0-7.6.99",
-            "version": "1.0.0"
+            "version": "1.0.8"
         },
         "extensionKey": "tp3ratings",
         "name": "tp3_ratings",
