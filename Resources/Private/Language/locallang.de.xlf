@@ -28,6 +28,7 @@
 				<target>Es wurde bereits eine Bwertung abgegeben.</target>
 			</trans-unit>
 			<trans-unit id="api_already_thx" xml:space="preserve">
+                <target>Thanks for your rate.</target>
                 <source>Danke für Ihre Bewertung.</source>
             </trans-unit>
 			<trans-unit id="api_tip" xml:space="preserve" approved="yes">
