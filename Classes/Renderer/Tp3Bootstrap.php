@@ -58,7 +58,14 @@ $GLOBALS['BE_USER']->start();
  * Initialize Database
  */
 $TSFE->connectToDB();
- 
+
+$ajax = array();
+$ajax['arguments']	= $_gp;
+$ajax['vendor'] 	= 'Tp3';
+$ajax['extensionName'] 	= 'Tp3ratings';
+$ajax['pluginName'] 	= 'Tp3feratings';
+$ajax['controller'] 	= 'Ratingsdata';
+$ajax['action'] 	= 'rating';
 /**
  * @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager
  */

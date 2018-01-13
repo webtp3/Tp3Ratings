@@ -21,7 +21,7 @@ call_user_func(
 
 
         
-        $tx_tp3ratings_tp3feratings_sysconf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+        $tx_tp3ratings_tp3feratings_sysconf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extKey]);
         $tx_tp3ratings_tp3feratings_debug_mode_disabled = is_array($tx_tp3ratings_tp3feratings_sysconf) && !intval($tx_tp3ratings_tp3feratings_sysconf['debugMode']);
 
 
