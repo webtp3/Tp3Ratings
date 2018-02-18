@@ -74,7 +74,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $worstRating = 1;
     
     /**
-     * ratingValu
+     * ratingValue
      *
      * @var string
      */
@@ -181,7 +181,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getRatingValue()
     {
-    	return $this->rating;
+    	return round($this->rating / $this->votecount,2);
     }
     
     /**

@@ -257,7 +257,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         }
         else $remoteaddress =$_SERVER['REMOTE_ADDR'];
         $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"])->getFirst();
-        $this->settings["disableIpCheck"] = 1;
+       // $this->settings["disableIpCheck"] = 1;
         if($this->settings["disableIpCheck"] == 1 || !$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
             if ($ratingsdata instanceof \Tp3\Tp3ratings\Domain\Model\Ratingsdata && intval($ratingsdata->getVotecount()) > 0) {
                 if($iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
@@ -274,8 +274,10 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 $ratingsdata->setTip("add");
                 $ratingsdata->setSubmittext($this->gettranslation('api_already_thx'));
             }
+            if(!$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog)   $iplog = $this->objectManager->get('Tp3\\Tp3ratings\\Domain\\Model\\Iplog');
 
-            $iplog->SetIp($remoteaddress);
+
+            $iplog->setIp($remoteaddress);
             $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
             $iplog->SetSession($_SESSION);
             // md5($ref . $i . $ajaxData . $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']);
