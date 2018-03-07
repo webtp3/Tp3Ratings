@@ -5,7 +5,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['tp3ratings_tp3feratings']='layout,select_key,pages,recursive';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tp3ratings_tp3feratings']='pi_flexform';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tx_tp3ratings_domain_model_ratingsdata']='pi_flexform';
+//$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tx_tp3ratings_domain_model_ratingsdata']='pi_flexform';
 
 
 /* Add the plugins */
