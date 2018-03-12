@@ -9,13 +9,13 @@ call_user_func(
             'Tp3.Tp3ratings',
             'Tp3feratings',
             [
-                'Ratingsdata' => 'list, new, create, rating',
-                'Iplog' => 'list, new, create'
+                'Ratingsdata' => 'list, new',
+                'Iplog' => 'list, new'
             ],
             // non-cacheable actions
             [
-                'Ratingsdata' => 'create, rating',
-            		'Iplog' => 'create'
+                'Ratingsdata' => 'create, rating, review',
+            		'Iplog' => 'create, review',
             ]
         );
 
@@ -24,6 +24,7 @@ call_user_func(
          * Register eID for rateings ajax action-call
          */
         $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['rating'] = 'EXT:tp3ratings/Classes/Renderer/Tp3Bootstrap.php';//Tp3\Tp3ratings\Controller\RatingsdataController::class . '::RatingAction';//
+        $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['review'] = 'EXT:tp3ratings/Classes/Renderer/Tp3Bootstrap.php';//Tp3\Tp3ratings\Controller\RatingsdataController::class . '::RatingAction';//
 
         /***************
          * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades

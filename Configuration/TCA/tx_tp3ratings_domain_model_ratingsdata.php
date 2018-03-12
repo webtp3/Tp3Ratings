@@ -124,13 +124,13 @@ return [
 	        'exclude' => true,
 	        'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.rating',
 	        'config' => [
-			    'type' => 'text',
+			    'type' => 'input',
 			    'cols' => 40,
 			    'rows' => 15,
 			    'eval' => 'trim'
 			]
 	    ],
-	    'votecount' => [
+        'votecount' => [
 	        'exclude' => true,
 	        'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.votecount',
 	        'config' => [

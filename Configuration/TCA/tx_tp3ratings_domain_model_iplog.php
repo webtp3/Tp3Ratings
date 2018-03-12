@@ -116,6 +116,16 @@ return [
 			    'eval' => 'trim'
 			],
 	    ],
+        'review' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog.review',
+            'config' => [
+                'type' => 'input',
+                'cols' => 40,
+                'rows' => 15,
+                'eval' => 'trim'
+            ]
+        ],
 	    'ref' => [
 	        'exclude' => true,
 	        'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog.ref',

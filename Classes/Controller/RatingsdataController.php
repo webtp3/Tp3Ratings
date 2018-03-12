@@ -341,6 +341,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         }
         //	$infoWindowView->setLayoutName("Rating");
         // Objekt �bergeben und Template verarbeiten
+       $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
         $infoWindowView->assign('ratingsdata', $ratingsdata);
 
         // Rendern und zurueckgeben

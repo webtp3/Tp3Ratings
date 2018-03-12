@@ -8,13 +8,14 @@ plugin.tx_tp3ratings_tp3feratings {
     layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3feratings.view.layoutRootPath}
   }
   persistence{
-   #// storagePid = {$plugin.tx_tp3ratings_tp3feratings.persistence.storagePid}
+    storagePid = {$plugin.tx_tp3ratings_tp3feratings.persistence.storagePid}
     #recursive = 1
   }
   features{
     #skipDefaultArguments = 1
   }
   settings{
+    disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
   	minValue = {$plugin.tx_tp3ratings_tp3feratings.minValue}
 	maxValue = {$plugin.tx_tp3ratings_tp3feratings.maxValue}
 	ratingImageWidth = {$plugin.tx_tp3ratings_tp3feratings.ratingImageWidth}

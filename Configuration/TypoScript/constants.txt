@@ -10,7 +10,7 @@ plugin.tx_tp3ratings_tp3feratings {
   }
   persistence {
     # cat=plugin.tx_tp3ratings_tp3feratings//a; type=string; label=Default storage PID
-    //storagePid =
+    storagePid =
   }
 }
 
@@ -26,6 +26,8 @@ plugin.tx_tp3ratings_tp3feratings.ratingImageWidth = 11
 plugin.tx_tp3ratings_tp3feratings.mode = auto
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=boolean; label=Disable IP checks;If checked, disables IP checks. This will let users to vote many times on the same item. Useful for debugging.
 plugin.tx_tp3ratings_tp3feratings.disableIpCheck = 1
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=boolean; label=disable Review will disable die review request after rating.
+plugin.tx_tp3ratings_tp3feratings.disableReview = 1
 # cat=plugin.tx_tp3ratings_tp3feratings/file; type=string; label=Template file
 plugin.tx_tp3ratings_tp3feratings.templateFile = EXT:ratings/res/ratingsMicrodata.html
 # cat=plugin.tx_tp3ratings_tp3feratings/file; type=string; label=Additional CSS file

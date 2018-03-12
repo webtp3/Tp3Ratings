@@ -1,2 +1,2 @@
 # cat=General/130_features/10; type=boolean; label=LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_debug
-debug = 0
+debug = 1

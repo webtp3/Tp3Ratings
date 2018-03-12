@@ -1,17 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
 	<div id="tx_tp3ratings-{ratingsdata.ref}">
 	<div class="tx_tp3ratings">
@@ -59,7 +48,46 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 		</div>
 	</div>
-</div>
+		<f:if condition="{disableReview} < 1">
+			<div id="tp3review" class="modal fade panel" role="dialog">
+				<div class="modal-dialog" role="document">
+					<form name="review" id="tp3reviewRequest">
+
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="gridSystemModalLabel"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.review" /></h4>
+							</div>
+							<div class="modal-body">
+
+								<div class="tp3review-rating">
+								</div>
+								<div class="tp3review-text">
+									<label for="review">
+										<f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.review" />
+									</label><br />
+									<f:form.textarea property="review" cols="40" rows="15" /><br />
+								</div>
+								<div class="tp3review-mail">
+									<label class="email">
+										<f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.email" />
+									</label><br>
+									<f:form.textfield required="TRUE"  additionalAttributes="{pattern:'[^ @]*@[^ @]*'}" type="email" name="emailadresse"  errorClass="'f3-form-error'" class="formvalue" id="tx_tp3ratings_data.emailadresse" >
+									</f:form.textfield>	<br>
+									<span class="emailtxt"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.emailtxt" /></span>
+									<f:form.hidden  name="check" value="{ratingsdata.options.check}"  class="formvalue" id="check" />
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" id="SubmitReview">Send</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div>
+		</f:if>
+	</div>
 	<f:if condition="{debugMode}"><f:debug>{_all}</f:debug></f:if>
 
 </f:section>

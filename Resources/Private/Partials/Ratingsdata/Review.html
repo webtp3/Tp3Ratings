@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tp3review-rating">
+</div>
+<div class="tp3review-text">
+    <label for="review">
+        <f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.review" />
+    </label><br />
+    <f:form.textarea property="review" cols="40" rows="15" /><br />
+  </div>
+  <div class="tp3review-mail">
+  <label class="email">
+        <f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.email" />
+    </label><br>
+    <f:form.textfield required="TRUE"  additionalAttributes="{pattern:'[^ @]*@[^ @]*'}" type="email" name="emailadresse"  errorClass="'f3-form-error'" class="formvalue" id="tx_tp3ratings_domain_model_ratingsdata.emailadresse" >
+    </f:form.textfield>
+      <br>
+      <f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.emailtxt" />
+    <f:form.hidden  name="check" value="{option.check}"  class="formvalue" id="check" />
+  </div>

@@ -54,6 +54,15 @@
 			<trans-unit id="tx_tp3ratings_data.vote_count" xml:space="preserve">
 				<source>Anzahl der Bewertungen:</source>
 			</trans-unit>
+			<trans-unit id="tx_tp3ratings_data.review" xml:space="preserve">
+                <source>Rezesion:</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_data.email" xml:space="preserve">
+                <source>Email Adresse:</source>
+            </trans-unit>
+             <trans-unit id="tx_tp3ratings_data.emailtxt" xml:space="preserve">
+                <source>Diese Adresse wird nicht veröffentlicht. Sie dient zur Identifizierung und ggf. der späteren Bearbeitung. Mehr finden Sie unter <a href="https://www.lacuisine.de/login/">Login</a></source>
+            </trans-unit>
 			<trans-unit id="tx_tp3ratings_iplog" xml:space="preserve">
 				<source>IP der Bewertung</source>
 			</trans-unit>
