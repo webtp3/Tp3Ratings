@@ -58,8 +58,9 @@ $ajax['vendor'] 	= 'Tp3';
 $ajax['extensionName'] 	= 'Tp3ratings';
 $ajax['pluginName'] 	= 'Tp3feratings';
 $ajax['controller'] 	= 'Ratingsdata';
-//prevent injection of action
+
 $ajax['action'] 	= $_gp["eID"] == "review" ? "review" : "rating";
+
 /**
  * @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager
  */

@@ -11,6 +11,7 @@ plugin.tx_tp3ratings_tp3feratings {
   persistence {
     # cat=plugin.tx_tp3ratings_tp3feratings//a; type=string; label=Default storage PID
     storagePid =
+
   }
 }
 
