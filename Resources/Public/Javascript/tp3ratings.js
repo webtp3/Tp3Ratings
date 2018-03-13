@@ -1,5 +1,5 @@
-var base = $("base").length > 0 ? $("base").attr("href") : (window.location.protocol + "://" + window.location.host +"/tp_8")
-
+var base = $("base").length > 0 ? $("base").attr("href") : (window.location.protocol + "//" + window.location.host +"/" )
+//if(window.location.host == "localhost.tp3.de" ) base +="/tp_8";
 function tx_tp3ratings_submit(id, rating, ajaxData, check) {
     $('.tx_tp3ratings-vote-bar').hide();
     $('.tx-tp3ratings-display-wrap').show();
@@ -7,7 +7,7 @@ function tx_tp3ratings_submit(id, rating, ajaxData, check) {
     // Assign handlers immediately after making the request,
 // and remember the jqxhr object for this request
     var e,data;
-    var jqxhr = $.getJSON(  base + '/index.php?eID=rating&rating='+rating+'&ref=' + id,  'ref=' + id + '&rating=' + rating + '&ratingdata=' + ajaxData + '&check=' + check , update_rating)
+    var jqxhr = $.getJSON(  base + 'index.php?eID=rating&rating='+rating+'&ref=' + id,  'ref=' + id + '&rating=' + rating + '&ratingdata=' + ajaxData + '&check=' + check , update_rating)
         .done(update_rating)
         .fail(function() {
             console.log( "error" );
@@ -50,7 +50,7 @@ function update_rating(result) {
         $j('#tp3review').modal('show')
         $('#SubmitReview').click(function (e) {
             e.preventDefault();
-            var jqxhr = $.getJSON(base + '/index.php?eID=review&' + $j('#tp3reviewRequest').serialize())
+            var jqxhr = $.getJSON(base + 'index.php?eID=review&' + $j('#tp3reviewRequest').serialize())
                 .done(function () {
                     console.log("done")
                 })

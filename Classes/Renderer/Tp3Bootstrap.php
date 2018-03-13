@@ -14,14 +14,7 @@ $_gp = \TYPO3\CMS\Extbase\Utility\ArrayUtility::arrayMergeRecursiveOverrule(
 	$_gp,
 	\TYPO3\CMS\Core\Utility\GeneralUtility::_GET()
 );
- 
-$ajax = array();
-$ajax['arguments']	= $_gp;
-$ajax['vendor'] 	= 'Tp3';
-$ajax['extensionName'] 	= 'Tp3ratings';
-$ajax['pluginName'] 	= 'Tp3feratings';
-$ajax['controller'] 	= 'Ratingsdata';
-$ajax['action'] 	= 'rating';
+
 
 
 /**
@@ -65,7 +58,8 @@ $ajax['vendor'] 	= 'Tp3';
 $ajax['extensionName'] 	= 'Tp3ratings';
 $ajax['pluginName'] 	= 'Tp3feratings';
 $ajax['controller'] 	= 'Ratingsdata';
-$ajax['action'] 	= 'rating';
+//prevent injection of action
+$ajax['action'] 	= $_gp["eID"] == "review" ? "review" : "rating";
 /**
  * @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager
  */

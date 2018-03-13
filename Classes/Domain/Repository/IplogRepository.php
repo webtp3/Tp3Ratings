@@ -24,7 +24,7 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param integer $catUID
      * @return Tp3\Tp3ratings\Domain\Model\Iplog
      */
-    public function findbyIpandRef($ip, $pid) {
+    public function findbyIpandRef($ip, $pid, $sessid = "") {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
         $querySettings->setRespectStoragePage(false);
 
@@ -35,9 +35,10 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $query->logicalAnd(
                 $query->equals('hidden', 0),
                 $query->equals('ref', $pid),
+                $query->equals('session', $sessid),
                 $query->equals('deleted', 0)
             )
         );
         return $query->execute();
     }
-    }
+}

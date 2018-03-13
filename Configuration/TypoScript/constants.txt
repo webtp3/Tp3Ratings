@@ -20,14 +20,22 @@ plugin.tx_tp3ratings_tp3feratings.storagePid =
 plugin.tx_tp3ratings_tp3feratings.minValue = 1
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int; label=Minimum rating value;Warning: this value must not be changed after ratings start working or results will be incorrect! You may also need to change CSS styles to display ratings properly
 plugin.tx_tp3ratings_tp3feratings.maxValue = 5
-# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating image width
-plugin.tx_tp3ratings_tp3feratings.ratingImageWidth = 11
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating voted color
+plugin.tx_tp3ratings_tp3feratings.votedColor = {$plugin.bootstrap_package.settings.less.brand-primary};
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating if not set falls back to linkcolor
+plugin.tx_tp3ratings_tp3feratings.Color = #fff;
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating Icons (select you icon galery)
+plugin.tx_tp3ratings_tp3feratings.IconType = glyphicon
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating icon Obect star, ok and more depends on icontype
+plugin.tx_tp3ratings_tp3feratings.IconObject = star
+# cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=font size
+plugin.tx_tp3ratings_tp3feratings.FontSize = 12pt
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=options[Auto=auto,Force static=static]; label=Display mode
 plugin.tx_tp3ratings_tp3feratings.mode = auto
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=boolean; label=Disable IP checks;If checked, disables IP checks. This will let users to vote many times on the same item. Useful for debugging.
 plugin.tx_tp3ratings_tp3feratings.disableIpCheck = 1
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=boolean; label=disable Review will disable die review request after rating.
-plugin.tx_tp3ratings_tp3feratings.disableReview = 1
+plugin.tx_tp3ratings_tp3feratings.disableReview = 0
 # cat=plugin.tx_tp3ratings_tp3feratings/file; type=string; label=Template file
 plugin.tx_tp3ratings_tp3feratings.templateFile = EXT:ratings/res/ratingsMicrodata.html
 # cat=plugin.tx_tp3ratings_tp3feratings/file; type=string; label=Additional CSS file

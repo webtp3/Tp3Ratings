@@ -37,7 +37,14 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $ref = 0;
-	
+
+    /**
+     * ref
+     *
+     * @var string
+     */
+    public $obj = "pages";
+
     /**
      * tip
      *
@@ -83,15 +90,15 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * reviewCount
      *
-     * @var string
+     * @var integer
      */
-    protected $reviewCount = '';
+    protected $reviewCount = 0;
     /**
      * ratingCount
      *
-     * @var string
+     * @var integer
      */
-    protected $ratingCount= '';
+    protected $ratingCount= 0;
     
     /**
      * bestRating
@@ -183,16 +190,27 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
     	return round($this->rating / $this->votecount,2);
     }
-    
     /**
-     * reviewCount
+     * Returns the reviewCount
      *
-     * @var string
+     * @return string $reviewCount
      */
     public function getReviewCount()
     {
-        return $this->votecount;
+        return $this->reviewCount;
     }
+
+    /**
+     * Sets the reviewCount
+     *
+     * @param int $reviewCount
+     * @return void
+     */
+    public function setReviewCount($reviewCount)
+    {
+        $this->reviewCount = $reviewCount;
+    }
+
     /**
      * ratingCount
      *
@@ -345,5 +363,25 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setRef($ref)
     {
         $this->ref = $ref;
+    }
+    /**
+     * Returns the obj
+     *
+     * @return string $obj
+     */
+    public function getObj()
+    {
+        return $this->obj;
+    }
+
+    /**
+     * Sets the obj
+     *
+     * @param string $obj
+     * @return void
+     */
+    public function setObj($obj)
+    {
+        $this->obj = $obj;
     }
 }

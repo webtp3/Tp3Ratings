@@ -11,6 +11,7 @@ namespace Tp3\Tp3ratings\Controller;
  *  (c) 2017 Thomas Ruta <email@thomasruta.de>, R&P IT Consulting GmbH
  *
  ***/
+use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -86,8 +87,11 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     /**
      * @var string
      */
+    public $tp3reviewdata = '';
+    /**
+     * @var string
+     */
     protected $entityNotFoundMessage = 'The requested entity could not be found.';
-
     /**
      * @var string
      */
@@ -161,8 +165,26 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         if (count($request->getArguments())> 0 &&  $request->getArgument("eID") == "rating" && $request->hasArgument("ratingdata") ) {
             //&& $this->resolveActionMethodName() == "ratingAction"
             $data_str = $request->getArgument("ratingdata");
-            $request->SetArgument("ratingdata", unserialize(base64_decode($data_str)));
+            if($request->hasArgument("check")){
+               if($request->getArgument("check") == md5($_REQUEST["ref"] . $_REQUEST["rating"] . $data_str . $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey'])){
+                   $request->SetArgument("check",$request->getArgument("check"));
+                   $request->SetArgument("ratingdata", unserialize(base64_decode($data_str)));
+               }
+                  //  throw InvalidPropertyException;
+
+            }
+            else{
+               // throw PageNotFoundException;
+            }
+        }
+        if (count($request->getArguments())> 0 &&  $request->getArgument("eID") == "review" && $request->hasArgument("tp3reviewdata") ) {
+            //&& $this->resolveActionMethodName() == "ratingAction"
+            $this->tp3reviewdata = $request->getArgument("tp3reviewdata");
+           // $request->SetArgument("ratingdata", unserialize(base64_decode($data_str)));
             if($request->hasArgument("check"))$request->SetArgument("check",$request->getArgument("check"));
+            else{
+              //  throw PageNotFoundException;
+            }
         }
         try {
             parent::processRequest($request, $response);
@@ -256,8 +278,8 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             $remoteaddress =  $_SERVER['HTTP_X_FORWARDED_FOR'];
         }
         else $remoteaddress =$_SERVER['REMOTE_ADDR'];
-        $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"])->getFirst();
-       // $this->settings["disableIpCheck"] = 1;
+        $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"], $GLOBALS["TSFE"]->fe_user->id)->getFirst();
+        // $this->settings["disableIpCheck"] = 1;
         if($this->settings["disableIpCheck"] == 1 || !$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
             if ($ratingsdata instanceof \Tp3\Tp3ratings\Domain\Model\Ratingsdata && intval($ratingsdata->getVotecount()) > 0) {
                 if($iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
@@ -272,15 +294,21 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             } else {
                 $ratingsdata = $this->objectManager->get('Tp3\\Tp3ratings\\Domain\\Model\\Ratingsdata');
                 $ratingsdata->setTip("add");
+                $ratingsdata->SetObj($this->settings["pageObjectName"]);
                 $ratingsdata->setSubmittext($this->gettranslation('api_already_thx'));
             }
             if(!$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog)   $iplog = $this->objectManager->get('Tp3\\Tp3ratings\\Domain\\Model\\Iplog');
 
 
             $iplog->setIp($remoteaddress);
-            $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
-            $iplog->SetSession($_SESSION);
-            // md5($ref . $i . $ajaxData . $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']);
+            if($ratingsdata->obj == "pages" ) {
+                $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
+            }
+            else{
+                $iplog->setPid(  $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+
+            }
+            $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
             $data_str =  $this->request->hasArgument("ratingdata") ? $this->request->getArgument("ratingdata") : '';
             $ratingsdata->setCheck( $this->request->hasArgument("check") ? $this->request->getArgument("check") : false);
 
@@ -291,7 +319,13 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             else{
                 $ratingsdata->setVotecount(intval($ratingsdata->getVotecount())+ 1);
                 $ratingsdata->setRef( $this->request->hasArgument("ref") ? $this->request->getArgument("ref") : $GLOBALS["TSFE"]->page["uid"]);
-                $ratingsdata->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
+              if($ratingsdata->obj == "pages" ) {
+                  $ratingsdata->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
+              }
+              else{
+                  $ratingsdata->setPid(   $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+
+              }
                 if (trim($ratingsdata->getRef()) == '') {
                     $this->addFlashMessage( $this->gettranslation('bad_ref_value'));
                     $ratingsdata->addSubmittext($this->gettranslation('bad_ref_value'));
@@ -341,13 +375,69 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         }
         //	$infoWindowView->setLayoutName("Rating");
         // Objekt �bergeben und Template verarbeiten
-       $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
+        $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
         $infoWindowView->assign('ratingsdata', $ratingsdata);
-
+        $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
         return $infoWindow;
         //$this->redirect('list');
+    }
+
+    /**
+     * action review
+     *
+     *
+     * @return void
+     */
+    public function ReviewAction()
+    {
+        $this->setDefaultViewVars();
+        if (preg_match('/^\d{2,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/', $_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $remoteaddress =  $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else $remoteaddress =$_SERVER['REMOTE_ADDR'];
+        $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"], $GLOBALS["TSFE"]->fe_user->id)->getFirst();
+        //$this->redirect('list');
+        $iplog->ref->setReviewCount($iplog->ref->getReviewCount()+1);
+        $iplog->setReview($this->tp3reviewdata["review"]);
+        $iplog->setUserid($this->tp3reviewdata["emailadresse"]);
+
+        $this->persistenceManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class);
+        $this->persistenceManager->persistAll();
+
+        /** @var \TYPO3\CMS\Fluid\View\StandaloneView $Ratings */
+        $infoWindowView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
+
+        // Dateiformat festlegen
+        $infoWindowView->setFormat('json');
+        //$this->conf = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+
+        // Typoscript-Konfiguration fuer entsprechendes Template holen
+        $templateRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->conf['view']['templateRootPath']);
+
+        // Template-Pfad festlegen bzw. entsprechend anpassen
+        $templatePathAndFilename = $templateRootPath . 'Ratingsdata/Rating.json';
+
+        if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('extbase')) < 8007000) {
+
+            $infoWindowView->setTemplatePathAndFilename($templatePathAndFilename);
+        } else {
+            $layoutRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->conf['view']['layoutRootPath']);
+            $partialRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->conf['view']['partialRootPath']);
+            //   $infoWindowView->setRenderingContext()
+            $infoWindowView->setLayoutRootPaths(array($templateRootPath.'Ratingsdata/Layouts/',$layoutRootPath));
+            $infoWindowView->setPartialRootPaths(array($partialRootPath));
+            $infoWindowView->setTemplatePathAndFilename($templatePathAndFilename);
+        }
+        //	$infoWindowView->setLayoutName("Rating");
+        // Objekt �bergeben und Template verarbeiten
+        $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
+        $infoWindowView->assign('ratingsdata', $this->tp3reviewdata);
+        $infoWindowView->assign('settings', $this->settings);
+        // Rendern und zurueckgeben
+        $infoWindow = $infoWindowView->render();
+        return $infoWindow;
     }
     /**
      * action create

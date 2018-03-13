@@ -15,18 +15,28 @@ plugin.tx_tp3ratings_tp3feratings {
     #skipDefaultArguments = 1
   }
   settings{
-    disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
-  	minValue = {$plugin.tx_tp3ratings_tp3feratings.minValue}
-	maxValue = {$plugin.tx_tp3ratings_tp3feratings.maxValue}
-	ratingImageWidth = {$plugin.tx_tp3ratings_tp3feratings.ratingImageWidth}
-	mode = {$plugin.tx_tp3ratings_tp3feratings.mode}
-	disableIpCheck = {$plugin.tx_tp3ratings_tp3feratings.disableIpCheck}
+        disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
+        minValue = {$plugin.tx_tp3ratings_tp3feratings.minValue}
+        maxValue = {$plugin.tx_tp3ratings_tp3feratings.maxValue}
+        ratingImageWidth = {$plugin.tx_tp3ratings_tp3feratings.ratingImageWidth}
+        mode = {$plugin.tx_tp3ratings_tp3feratings.mode}
+        disableIpCheck = {$plugin.tx_tp3ratings_tp3feratings.disableIpCheck}
+        IconType = {$plugin.tx_tp3ratings_tp3feratings.IconType}
+        IconObject = {$plugin.tx_tp3ratings_tp3feratings.IconObject}
+        FontSize = {$plugin.tx_tp3ratings_tp3feratings.FontSize}
+        pageObjectName = {$plugin.tx_tp3ratings_tp3feratings.pageObjectName}
+        votedColor = {$plugin.tx_tp3ratings_tp3feratings.votedColor}
+        Color = {$plugin.tx_tp3ratings_tp3feratings.Color}
   }
   mvc{
     callDefaultActionIfActionCantBeResolved = 1
   }
 }
+
 page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
+[{$plugin.tx_tp3ratings_tp3feratings.additionalCSS}]
+page.includeCSS.tp3feratings_additionalCSS = {$plugin.tx_tp3ratings_tp3feratings.additionalCSS}
+[END]
 page.includeJSFooterlibs.tp3ratings = EXT:tp3ratings/Resources/Public/Javascript/tp3ratings.js
 
 plugin.tx_tp3ratings._CSS_DEFAULT_STYLE (

@@ -29,7 +29,7 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \Tp3\Tp3ratings\Domain\Model\Ratingsdata
      */
-    protected $ref = null;
+    public $ref = null;
 
     /**
      * session
@@ -59,6 +59,65 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSession($session)
     {
         $this->session = $session;
+    }
+
+    /**
+     * userid
+     *
+     * @var string
+     */
+    protected $userid = '';
+
+
+
+    /**
+     * Returns the userid
+     *
+     * @return string $userid
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+
+    /**
+     * Sets the userid
+     *
+     * @param string $userid
+     * @return void
+     */
+    public function setUserid($userid)
+    {
+        $this->userid = $userid;
+    }
+
+    /**
+     * review
+     *
+     * @var string
+     */
+    protected $review = '';
+
+
+    /**
+     * Returns the review
+     *
+     * @return string $review
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    /**
+     * Sets the review
+     *
+     * @param string $review
+     * @return void
+     */
+    public function setReview($review)
+    {
+        $this->review = $review;
     }
     /**
      * Returns the ip
