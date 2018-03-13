@@ -98,6 +98,7 @@ tx_tp3ratings_ajaxPage {
             Ratingsdata {
                 1 = list
                 2 = rating
+		3 = review
             }
         }
        //#for 8

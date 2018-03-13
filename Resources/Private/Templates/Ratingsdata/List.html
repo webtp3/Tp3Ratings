@@ -61,25 +61,7 @@
 								<h4 class="modal-title" id="gridSystemModalLabel"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_ratingsdata.review" /></h4>
 							</div>
 							<div class="modal-body">
-
-								<div class="tp3review-rating">
-								</div>
-								<div class="tp3review-text">
-									<label for="review">
-										<f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.review" />
-									</label><br />
-									<f:form.textarea name="tp3reviewdata[review]" class="tx_tp3ratings_data-textarea" additionalAttributes="{required: 'required'}" cols="40" rows="15" /><br />
-								</div>
-								<div class="tp3review-mail">
-									<label class="email">
-										<f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.email" />
-									</label><br>
-									<f:form.textfield required="TRUE"  additionalAttributes="{pattern:'[^ @]*@[^ @]*'}" type="email" name="tp3reviewdata[emailadresse]"  errorClass="'f3-form-error'" class="formvalue" id="tx_tp3ratings_data.emailadresse" >
-									</f:form.textfield>	<br>
-									<span class="emailtxt"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.emailtxt" /></span>
-									<f:form.hidden  name="tp3reviewdata[check]" value="{ratingsdata.options['check']}"  id="check" />
-									<f:form.hidden  name="eID" value="review"  />
-								</div>
+								<f:render partial="Ratingsdata/Review" arguments="{ratingsdata:ratingsdata}" />
 							</div>
 						</div>
 						<div class="modal-footer">

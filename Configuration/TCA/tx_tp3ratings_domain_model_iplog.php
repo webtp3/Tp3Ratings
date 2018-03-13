@@ -16,14 +16,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-		'searchFields' => 'ip,ref',
+		'searchFields' => 'ratingvalue, userid, ip,ref , cruser_id',
         'iconfile' => 'EXT:tp3ratings/Resources/Public/Icons/tx_tp3ratings_domain_model_iplog.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ip, ref',
+		'showRecordFieldList' => 'hidden, cruser_id,  ratingvalue, userid, review, ip, ref',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ip, ref, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => ' hidden, cruser_id,  ratingvalue, userid, review, ip,  ref, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
 	/*	'sys_language_uid' => [
@@ -62,6 +62,7 @@ return [
                 'type' => 'passthrough',
             ],
         ],*/
+
 		't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [
@@ -70,7 +71,23 @@ return [
                 'max' => 255,
             ],
         ],
-		'hidden' => [
+        'cruser_id' => [
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.cruser_id',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'fe_users',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'appearance' => [
+                    'collapseAll' => 0,
+                    'levelLinksPosition' => 'top',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'showAllLocalizationLink' => 1
+                ],
+            ],
+        ],
+        'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
             'config' => [
@@ -120,9 +137,27 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog.review',
             'config' => [
-                'type' => 'input',
+                'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
+                'eval' => 'trim'
+            ]
+        ],
+        'ratingvalue' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog.ratingvalue',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ]
+        ],
+        'userid' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog.userid',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
                 'eval' => 'trim'
             ]
         ],

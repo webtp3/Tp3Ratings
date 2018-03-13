@@ -52,7 +52,8 @@ CREATE TABLE tx_tp3ratings_domain_model_iplog (
 	ref int(11) unsigned DEFAULT '0',
 	session varchar(255) DEFAULT '' NOT NULL,
 	review text DEFAULT NULL,
-	userid  int(11) unsigned DEFAULT '0',
+	ratingvalue varchar(255) DEFAULT '0',
+	userid  varchar(255) DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -81,4 +82,11 @@ CREATE TABLE tx_tp3ratings_domain_model_iplog (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
 
+);
+
+
+CREATE TABLE fe_users (
+reviews  varchar(255) DEFAULT NULL,
+INDEX `email` (`email`),
+INDEX `enabled` (`deleted`, `disable`)
 );
