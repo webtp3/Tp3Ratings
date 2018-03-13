@@ -32,6 +32,66 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public $ref = null;
 
     /**
+     * ratingvalue
+     *
+     * @var string
+     */
+    protected $ratingvalue = '';
+
+
+
+    /**
+     * Returns the ratingvalue
+     *
+     * @return string $ratingvalue
+     */
+    public function getRatingvalue()
+    {
+        return $this->ratingvalue;
+    }
+
+    /**
+     * Sets the ratingvalue
+     *
+     * @param string $ratingvalue
+     * @return void
+     */
+    public function setRatingvalue($ratingvalue)
+    {
+        $this->ratingvalue = $ratingvalue;
+    }
+
+    /**
+     * cruser_id
+     *
+     * @var string
+     */
+    protected $cruser_id = '';
+
+
+
+    /**
+     * Returns the cruser_id
+     *
+     * @return string $cruser_id
+     */
+    public function getCruserId()
+    {
+        return $this->cruser_id;
+    }
+
+    /**
+     * Sets the cruser_id
+     *
+     * @param string $cruser_id
+     * @return void
+     */
+    public function setCruserId($cruser_id)
+    {
+        $this->cruser_id = $cruser_id;
+    }
+
+    /**
      * session
      *
      * @var string

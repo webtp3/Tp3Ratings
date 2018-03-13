@@ -31,6 +31,12 @@
             <trans-unit id="tx_tp3ratings_domain_model_iplog.ref">
                 <source>Ref</source>
             </trans-unit>
+              <trans-unit id="tx_tp3ratings_domain_model_iplog.userid">
+                <source>User Email feuserid = cruser</source>
+            </trans-unit>
+            <trans-unit id="tx_tp3ratings_domain_model_iplog.ratingvalue">
+                <source>ratingvalue</source>
+            </trans-unit>
             <trans-unit id="tx_tp3ratings_domain_model_iplog.feuser">
                 <source>Feuser</source>
             </trans-unit>

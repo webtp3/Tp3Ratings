@@ -74,7 +74,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * view
      *
      * @var \Tp3\Tp3ratings\View\Rating
-     * @inject
+     *
      */
     protected $view = null;
     /**
@@ -132,7 +132,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 'ref' => $ref,
                 'pid' => $GLOBALS["TSFE"]->page["uid"],
                 'check' => $check,
-                'vrating' => intval(round( $rating->getRating()))/$rating->getVotecount(),
+                'vrating' => intval(round( $rating->getRating()/$rating->getVotecount()*100)),
                 'rating'=> intval(round( $rating->getRating())),
                 'ratingdata' => rawurlencode($ajaxData),
             ));
@@ -332,6 +332,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 }
                 $iplog->SetRef($ratingsdata);//$this->request->getArgument("id")
                 //	$this->iplogRepository->findAll();
+                $iplog->setRatingvalue($this->request->getArgument("rating")? intval($this->request->getArgument("rating")):0);
                 $ratingsdata->setRating($this->request->getArgument("rating")? intval($this->request->getArgument("rating")) + $ratingsdata->getRating() : "error");
                 if (!intval($ratingsdata->getRating())) {
                     $this->addFlashMessage( $this->gettranslation('bad_rating_value'));
@@ -398,13 +399,48 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         }
         else $remoteaddress =$_SERVER['REMOTE_ADDR'];
         $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"], $GLOBALS["TSFE"]->fe_user->id)->getFirst();
-        //$this->redirect('list');
-        $iplog->ref->setReviewCount($iplog->ref->getReviewCount()+1);
-        $iplog->setReview($this->tp3reviewdata["review"]);
-        $iplog->setUserid($this->tp3reviewdata["emailadresse"]);
 
-        $this->persistenceManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class);
-        $this->persistenceManager->persistAll();
+            if(!$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
+                $iplog = $this->objectManager->get('Tp3\\Tp3ratings\\Domain\\Model\\Iplog');
+                $iplog->setIp($remoteaddress);
+                if($iplog->ref->getObj() == "pages" ) {
+                    $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
+                }
+                else{
+                    $iplog->setPid(  $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+
+                }
+
+            }
+            $iplog->ref->setReviewCount($iplog->ref->getReviewCount()+1);
+            $iplog->setReview($this->tp3reviewdata["review"]);
+            $iplog->setUserid($this->tp3reviewdata["emailadresse"]);
+            $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
+            /*
+             *   $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession();
+                        $GLOBALS['TSFE']->loginUser = 1;
+             */
+       if($GLOBALS['TSFE']->loginUser) $iplog->setCruserId(  $GLOBALS['TSFE']->fe_user->getUid());
+
+
+                if(intval($iplog->getUid())> 0){
+                    $this->ratingsdataRepository->update($iplog->ref);
+                    $this->iplogRepository->update($iplog);
+
+                }
+                else {
+                  //  $this->ratingsdataRepository->add($ratingsdata);
+                    $this->iplogRepository->add($iplog);
+
+
+                }
+                //$ratingsdata->setSubmittext($this->controllerContext->getFlashMessageQueue());
+                $this->persistenceManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class);
+                $this->persistenceManager->persistAll();;
+
+
+
+
 
         /** @var \TYPO3\CMS\Fluid\View\StandaloneView $Ratings */
         $infoWindowView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
