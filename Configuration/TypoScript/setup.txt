@@ -8,13 +8,15 @@ plugin.tx_tp3ratings_tp3feratings {
     layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3feratings.view.layoutRootPath}
   }
   persistence{
+
     storagePid = {$plugin.tx_tp3ratings_tp3feratings.persistence.storagePid}
-    #recursive = 1
+  recursive = 1
   }
   features{
     #skipDefaultArguments = 1
   }
   settings{
+
         disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
         minValue = {$plugin.tx_tp3ratings_tp3feratings.minValue}
         maxValue = {$plugin.tx_tp3ratings_tp3feratings.maxValue}
@@ -27,6 +29,7 @@ plugin.tx_tp3ratings_tp3feratings {
         pageObjectName = {$plugin.tx_tp3ratings_tp3feratings.pageObjectName}
         votedColor = {$plugin.tx_tp3ratings_tp3feratings.votedColor}
         Color = {$plugin.tx_tp3ratings_tp3feratings.Color}
+
   }
   mvc{
     callDefaultActionIfActionCantBeResolved = 1
@@ -95,6 +98,7 @@ tx_tp3ratings_ajaxPage {
             Ratingsdata {
                 1 = list
                 2 = rating
+		3 = review
             }
         }
        //#for 8
