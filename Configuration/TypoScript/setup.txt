@@ -9,7 +9,8 @@ plugin.tx_tp3ratings_tp3feratings {
   }
   persistence{
     storagePid = {$plugin.tx_tp3ratings_tp3feratings.persistence.storagePid}
-    #recursive = 1
+
+    recursive = 1
   }
   features{
     #skipDefaultArguments = 1
@@ -27,6 +28,7 @@ plugin.tx_tp3ratings_tp3feratings {
         pageObjectName = {$plugin.tx_tp3ratings_tp3feratings.pageObjectName}
         votedColor = {$plugin.tx_tp3ratings_tp3feratings.votedColor}
         Color = {$plugin.tx_tp3ratings_tp3feratings.Color}
+
   }
   mvc{
     callDefaultActionIfActionCantBeResolved = 1
@@ -37,6 +39,7 @@ page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
 [{$plugin.tx_tp3ratings_tp3feratings.additionalCSS}]
 page.includeCSS.tp3feratings_additionalCSS = {$plugin.tx_tp3ratings_tp3feratings.additionalCSS}
 [END]
+
 page.includeJSFooterlibs.tp3ratings = EXT:tp3ratings/Resources/Public/Javascript/tp3ratings.js
 
 plugin.tx_tp3ratings._CSS_DEFAULT_STYLE (
