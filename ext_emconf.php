@@ -20,21 +20,31 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '1.0.11',
+  'version' => '1.1.1',
   'constraints' => 
   array (
     'depends' => 
     array (
-      'typo3' => '7.6.0-8.9.99',
+        'typo3' => '7.6.0-8.9.99',
+        'tp3mods' => '*',
     ),
     'conflicts' => 
     array (
     ),
     'suggests' => 
     array (
+        'bootstrap_package' => '8.0.0-8.9.99',
     ),
   ),
-  'clearcacheonload' => false,
-  'author_company' => NULL,
+    'autoload' =>
+        array (
+            'psr-4' =>
+                array (
+                    'Tp3\\Tp3ratings\\' => 'Classes',
+                ),
+        ),
+    'clearcacheonload' => false,
+    'author_company' => 'tp3',
+
 );
 
