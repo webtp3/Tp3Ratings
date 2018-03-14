@@ -68,7 +68,7 @@
                 <source>Email Adresse:</source>
             </trans-unit>
              <trans-unit id="tx_tp3ratings_data.emailtxt" xml:space="preserve">
-                <source>Diese Adresse wird nicht veröffentlicht. Sie dient zur Identifizierung und ggf. der späteren Bearbeitung. Mehr finden Sie unter <a href="https://www.lacuisine.de/login/">Login</a></source>
+                <source>Diese Adresse wird nicht veröffentlicht. Sie dient zur Identifizierung und ggf. der späteren Bearbeitung. Mehr finden Sie unter &lt;a href=" /login/"&gt;Login&lt;/a&gt;</source>
             </trans-unit>
 			<trans-unit id="tx_tp3ratings_iplog" xml:space="preserve">
 				<source>IP der Bewertung</source>

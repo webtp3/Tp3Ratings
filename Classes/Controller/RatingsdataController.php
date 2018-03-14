@@ -284,7 +284,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             if ($ratingsdata instanceof \Tp3\Tp3ratings\Domain\Model\Ratingsdata && intval($ratingsdata->getVotecount()) > 0) {
                 if($iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
                     $ratingsdata->setTip("update");
-                    $ratingsdata->setSubmittext($this->gettranslation('api_already_rated'));
+                    $ratingsdata->setSubmittext($this->gettranslation('api_already_thx'));
                 }
                 else{
                     $ratingsdata->setTip("update");
