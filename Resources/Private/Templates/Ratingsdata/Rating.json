@@ -2,7 +2,7 @@
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
 <f:layout name="Default" />
 <f:section name="main">
-<v:format.json.encode value="{ratingsdata}" useTraversableKeys="1" preventRecursion="1" recursionMarker="{ratingsdata}" dateTimeFormat="NULL">errormsg();</v:format.json.encode>
+<f:format.raw>{ratingsdata}</f:format.raw>
 </f:section>
 
 

@@ -377,7 +377,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         //	$infoWindowView->setLayoutName("Rating");
         // Objekt �bergeben und Template verarbeiten
         $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
-        $infoWindowView->assign('ratingsdata', $ratingsdata);
+        $infoWindowView->assign('ratingsdata', json_encode($ratingsdata));
         $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
@@ -469,7 +469,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         //	$infoWindowView->setLayoutName("Rating");
         // Objekt �bergeben und Template verarbeiten
         $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
-        $infoWindowView->assign('ratingsdata', $this->tp3reviewdata);
+        $infoWindowView->assign('ratingsdata', json_encode($this->tp3reviewdata));
         $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
