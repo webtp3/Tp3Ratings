@@ -67,7 +67,7 @@
                 <source>Email address:</source>
             </trans-unit>
              <trans-unit id="tx_tp3ratings_data.emailtxt" xml:space="preserve">
-                <source>The address is not going to be published. it may be used as identification and for editing. More you can find at&lt;a href="/login/"&gt;Login&lt;/a&gt;</source>
+                <source>The address is not going to be published. it may be used as identification and for editing. More you can find at Login</source>
             </trans-unit>
 			<trans-unit id="tx_tp3ratings_iplog" xml:space="preserve">
 				<source>IP der Bewertung</source>

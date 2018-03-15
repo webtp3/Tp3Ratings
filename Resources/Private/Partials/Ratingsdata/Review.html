@@ -13,7 +13,7 @@
     </label><br>
     <f:form.textfield required="TRUE"  additionalAttributes="{pattern:'[^ @]*@[^ @]*'}" type="email" name="tp3reviewdata[emailadresse]"  errorClass="'f3-form-error'" class="formvalue" id="tx_tp3ratings_data.emailadresse" >
     </f:form.textfield>	<br>
-    <span class="emailtxt"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.emailtxt" /></span>
+    <span class="emailtxt"><f:translate key="LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_data.emailtxt"  htmlEscape="0" /></span>
     <f:form.hidden  name="tp3reviewdata[check]" value="{ratingsdata.check}"  id="check" />
     <f:form.hidden  name="eID" value="review"  />
 </div>
