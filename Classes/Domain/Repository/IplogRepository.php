@@ -52,12 +52,43 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
         $querySettings->setRespectStoragePage(false);
         $this->setDefaultQuerySettings($querySettings);
-
+        $uids = explode(",",$list[1]);
         if($list != null){
+            $uids = explode(",",$list[1]);
+            $refs = explode(",",$list[0]);
+        }
+
+        if (is_array($uids) && is_array($refs)){
             $query = $this->createQuery();
             $query->matching(
-                $query->in('uid', $list)
+                $query->in('uid', $uids),
+                $query->in('ref', $refs),
+                $query->logicalAnd(
+                    $query->equals('hidden', 0),
+                    $query->equals('deleted', 0)
+                )
 
+            );
+        }
+        elseif (is_array($uids)){
+            $query = $this->createQuery();
+            $query->matching(
+                $query->in('uid', $uids),
+                $query->logicalAnd(
+                    $query->equals('hidden', 0),
+                    $query->equals('deleted', 0)
+                )
+
+            );
+        }
+        elseif (is_array($refs)){
+            $query = $this->createQuery();
+            $query->matching(
+                $query->in('ref', $refs),
+                  $query->logicalAnd(
+                      $query->equals('hidden', 0),
+                      $query->equals('deleted', 0)
+                  )
             );
         }
         else{

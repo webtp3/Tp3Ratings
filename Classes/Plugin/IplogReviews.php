@@ -72,8 +72,9 @@ class IplogReviews extends  \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $this->pi_setPiVarDefaults();
         $this->pi_initPIflexForm();
         $this->ffConf = array();
-
-
+        $ref = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'ref');
+        $reviews = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'reviews');
+        return array($ref,$reviews);
        /* if ($content != '') {
             if($this->conf['W3Cmode'] == 1){
                 $content = '<script language="javascript" type="text/javascript">

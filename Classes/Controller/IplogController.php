@@ -32,13 +32,13 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-     //   $cObj = $this->configurationManager->getContentObject();
+        $cObj = $this->configurationManager->getContentObject();
 
-      //  $this->conf = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+       $this->conf = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
-        //$iplogs = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\Tp3\Tp3ratings\Plugin\IplogReviews::class)->main($cObj,$this->conf);
+        $filter = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\Tp3\Tp3ratings\Plugin\IplogReviews::class)->main($cObj,$this->conf);
 
-        $iplogs = $this->iplogRepository->getList();
+        $iplogs = $this->iplogRepository->getList($filter);
         $this->view->assign('debugMode', true);
         $this->view->assign('tp3reviewdata', $iplogs);
     }
