@@ -19,7 +19,17 @@ call_user_func(
             ]
         );
 
-
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Tp3.Tp3ratings',
+            'Tp3reviews',
+            [
+                'Iplog' => 'list, show, new',
+            ],
+            // non-cacheable actions
+            [
+                'Iplog' => 'create, review',
+            ]
+        );
         /*
          * Register eID for rateings ajax action-call
          */
@@ -31,6 +41,7 @@ call_user_func(
          */
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Tp3\Tp3ratings\Updates\Tp3ratingsContentElementUpdate::class]
             = \Tp3\Tp3ratings\Updates\Tp3RatingsContentElementUpdate::class;
+
         // wizards
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             'mod {

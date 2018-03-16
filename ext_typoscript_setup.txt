@@ -37,6 +37,8 @@ plugin.tx_tp3ratings {
 	}
 	settings {
 		ajaxPageType = {$plugin.tx_tp3ratings.settings.ajaxPageType}
+		ajaxPageType2 = {$plugin.tx_tp3ratings.settings.ajaxPageType2}
+
 	}
 }
 

@@ -97,6 +97,18 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     protected $unknownErrorMessage = 'An unknown error occurred. The wild monkey horde in our basement will try to fix this as soon as possible.';
 
+    /**
+     *
+     * Override actions for page
+     * common.
+     *
+     * @api
+     */
+    protected function initializeAction()
+    {
+        $actionMethodName = $this->request->getControllerActionName();
+
+    }
 
     /**
      * Generates HTML code for displaying ratings.
@@ -143,17 +155,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     }
 
 
-    /**
-     * Initializes the current action
-     *
-     * @return void
-     */
-    public function initializeAction()
-    {
-        //$this->setDefaultViewVars();
 
-        //$this->Div = new Tp3Eid();
-    }
     /**
      * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface $request
      * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response
@@ -501,10 +503,10 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         //	$this->layout = $this->settings["layout"] ? $this->settings["layout"] : "style05";
         $this->cObjRenderer = new \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer();
         $configurationManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
-        $this->conf = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $this->conf = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK , $this->extensionName);
         $this->pageRenderer = $this->objectManager->get('TYPO3\\CMS\\Core\\Page\\PageRenderer');
         $this->view->assign('cObjData', $cObjData);
-        $this->view->assign('debugMode', false);
+        $this->view->assign('debugMode', true);
 
 
     }

@@ -1,0 +1,68 @@
+
+plugin.tx_tp3ratings_tp3reviews {
+    view{
+        templateRootPaths.0 = EXT:tp3ratings/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.templateRootPath}
+        partialRootPaths.0 = EXT:tp3ratings/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tp3ratings/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.layoutRootPath}
+    }
+    persistence{
+        storagePid = {$plugin.tx_tp3ratings_tp3reviews.persistence.storagePid}
+
+        recursive = 1
+    }
+    features{
+        #skipDefaultArguments = 1
+    }
+    settings{
+        disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
+
+    }
+    mvc{
+        callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+plugin.tx_tp3ratings_tp3reviews = USER_INT
+plugin.tx_tp3ratings_tp3reviews {
+    userFunc = Tp3\Tp3ratings\Plugin\IplogReviews->main
+
+}
+
+tx_tp3reviews_ajaxPage = PAGE
+tx_tp3reviews_ajaxPage {
+    typeNum = 13378
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 1
+        additionalHeaders = Content-type: text/plain
+        no_cache = 1
+    }
+
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = Tp3ratings
+        pluginName = Tp3reviews
+        vendorName = Tp3
+        controller = Iplog
+        switchableControllerActions {
+            Ratingsdata {
+                1 = list
+                2 = show
+                3 = review
+            }
+        }
+        //#for 8
+        ##file = EXT:tp3ratings/Resources/Private/Templates/Ratingsdata/Rating.json
+        partialRootPath = EXT:tp3ratings/Resources/Private/Partials/
+        layoutRootPath = EXT:tp3ratings/Resources/Private/Layouts/
+
+        view < plugin.tx_tp3ratings.view
+        persistence < plugin.tx_tp3ratings.persistence
+        settings < plugin.tx_tp3ratings.settings
+    }
+}

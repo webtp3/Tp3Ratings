@@ -41,4 +41,37 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         );
         return $query->execute();
     }
+
+    /**
+     *
+     *
+     * @param integer $list
+     * @return Tp3\Tp3ratings\Domain\Model\Iplog
+     */
+    public function getList($list = null) {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setRespectStoragePage(false);
+        $this->setDefaultQuerySettings($querySettings);
+
+        if($list != null){
+            $query = $this->createQuery();
+            $query->matching(
+                $query->in('uid', $list)
+
+            );
+        }
+        else{
+            $query = $this->createQuery();
+            $query->matching(
+              $query->greaterThan('review', ""),
+                $query->logicalNot(
+                    $query->equals('hidden', 1),
+                    $query->equals('review', ""),
+                    $query->equals('deleted', 1)
+                )
+            );
+        }
+
+        return $query->execute();
+    }
 }

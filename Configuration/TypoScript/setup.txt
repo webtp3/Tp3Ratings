@@ -34,31 +34,7 @@ plugin.tx_tp3ratings_tp3feratings {
     callDefaultActionIfActionCantBeResolved = 1
   }
 }
-plugin.tx_tp3ratings_tp3reviews {
-    view{
-        templateRootPaths.0 = EXT:tp3ratings/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.templateRootPath}
-        partialRootPaths.0 = EXT:tp3ratings/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.partialRootPath}
-        layoutRootPaths.0 = EXT:tp3ratings/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.layoutRootPath}
-    }
-    persistence{
-        storagePid = {$plugin.tx_tp3ratings_tp3reviews.persistence.storagePid}
 
-        recursive = 1
-    }
-    features{
-        #skipDefaultArguments = 1
-    }
-    settings{
-        disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
-
-    }
-    mvc{
-        callDefaultActionIfActionCantBeResolved = 1
-    }
-}
 page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
 
 [{$plugin.tx_tp3ratings_tp3feratings.additionalCSS}]
@@ -102,7 +78,7 @@ plugin.tx_tp3ratings._CSS_DEFAULT_STYLE (
 
 tx_tp3ratings_ajaxPage = PAGE
 tx_tp3ratings_ajaxPage {
-    typeNum = {$plugin.tx_tp3ratings.settings.ajaxPageType}
+    typeNum = 1337
     config {
         disableAllHeaderCode = 1
         xhtml_cleaning = 0

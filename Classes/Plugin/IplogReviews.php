@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
   */
 class IplogReviews extends  \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 {
-    public  $prefixId      = 'tp3ratings_tp3reviews';		// Same as class name
+    public  $prefixId      = 'tx_tp3ratings_tp3reviews';		// Same as class name
     public  $extKey        = 'tp3ratings';	// The extension key.
     public  $pi_checkCHash = true;
 
@@ -74,7 +74,7 @@ class IplogReviews extends  \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $this->ffConf = array();
 
 
-        if ($content != '') {
+       /* if ($content != '') {
             if($this->conf['W3Cmode'] == 1){
                 $content = '<script language="javascript" type="text/javascript">
                     //<![CDATA[
@@ -87,7 +87,7 @@ class IplogReviews extends  \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
         else {
             return '';
-        }
+        }*/
     }
 
 
@@ -98,8 +98,8 @@ class IplogReviews extends  \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
      */
     private function setDefaultViewVars() {
 
-        $this->extKey = "Tp3Social";
-    	$this->layout = $this->settings["layout"] ? $this->settings["layout"] : "style05";
+        $this->extKey = "Tp3ratings";
+    	//$this->layout = $this->settings["layout"] ? $this->settings["layout"] : "style05";
     	//$this->cObj = GeneralUtility::makeInstance(TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer);
     	$this->pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Page\\PageRenderer');
     	//$this->view->assign('cObjData', $cObjData);

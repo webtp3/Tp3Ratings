@@ -9,4 +9,6 @@ plugin.tx_tp3ratings {
 	}
 
 	settings.ajaxPageType = 1337
+    settings.ajaxPageType2 = 13378
+
 }

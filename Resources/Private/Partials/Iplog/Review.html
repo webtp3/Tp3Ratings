@@ -1,15 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{debugMode}"><f:debug>{_all}</f:debug></f:if>
 <f:for each="{tp3reviewdata}" as="tp3review">
-    <div class="tp3review-item">
+    <div class="tp3review-item-{tp3review.uid}">
 
         <div class="tp3review-rating">
-            {tp3reviewdata.ratingvalue}
+            {tp3review.ratingvalue}
         </div>
         <div class="tp3review-text">
-           {tp3reviewdata.review} <br />
+           {tp3review.review} <br />
         </div>
         <div class="tp3review-mail">
-            {tp3reviewdata.userid}
+            {tp3review.userid}
         </div>
     </div>
 </f:for>
