@@ -11,6 +11,12 @@ call_user_func(
             'tp3 Ratings FE'
         );
 
+        $pluginSignature = "Tp3reviews";
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'Tp3.Tp3ratings',
+            $pluginSignature,
+            'tp3 Reviews'
+        );
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, 'Configuration/TypoScript', 'tp3ratings');
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_ratingsdata', 'EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_ratingsdata.xlf');

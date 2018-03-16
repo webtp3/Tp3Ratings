@@ -7,8 +7,14 @@
                 <source>tp3 Ratings FE</source>
             </trans-unit>
             <trans-unit id="tx_tp3ratings_domain_model_tp3feratings.description">
-                <source></source>
+                <source>Display Rating and Microdata in FE</source>
             </trans-unit>
+            <trans-unit id="tp3ratings_tp3reviews">
+                 <source>tp3 Reviews FE</source>
+             </trans-unit>
+             <trans-unit id="tp3ratings_tp3reviews.description">
+                 <source>Display Reviews in FE</source>
+             </trans-unit>
             <trans-unit id="tx_tp3ratings_domain_model_ratingsdata">
                 <source>Ratingsdata</source>
             </trans-unit>

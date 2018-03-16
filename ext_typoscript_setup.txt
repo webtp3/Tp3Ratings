@@ -40,9 +40,6 @@ plugin.tx_tp3ratings {
 	}
 }
 
-page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
-page.includeJSFooterlibs.tp3ratings = EXT:tp3ratings/Resources/Public/Javascript/tp3ratings.js
-
 plugin.tx_news {
 	view {
 		widget.Tx_News_ViewHelpers_Widget_PaginateViewHelper.templateRootPath = EXT:tp3ratings/Resources/Private/Templates/News/

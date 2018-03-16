@@ -33,7 +33,7 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function listAction()
     {
         $iplogs = $this->iplogRepository->findAll();
-        $this->view->assign('iplogs', $iplogs);
+        $this->view->assign('tp3reviewdata', $iplogs);
     }
 
     /**

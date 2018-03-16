@@ -52,7 +52,7 @@ var  tp3ratings = tp3ratings || {
             });
             $(form).find('input[type="file"]').each(function() {	 values += "&" + $(this).attr('name') + "=" + $(this).val()})
 
-            var jqxhr = $.getJSON(this.base + 'index.php?eID=review&' + values)
+            var jqxhr = $.getJSON(tp3ratings.base + 'index.php?eID=review&' + values)
                 .done(function () {
                     console.log("done")
                 })
@@ -65,9 +65,16 @@ var  tp3ratings = tp3ratings || {
 
             event.preventDefault();
         });
-        $('.tx_tp3ratings-vote-bar').clone(true).appendTo($('#tp3review').find('.tp3review-rating')).css({position:"relative",width:"50%"});
+        if($('#tp3review').find('.tx_tp3ratings-vote-bar').length == 0 ){
+            $('.tx_tp3ratings-vote-bar').clone(true).appendTo($('#tp3review').find('.tp3review-rating')).css({position:"relative",width:"50%"});
+
+        }
+        $('#tp3review').find('.tx_tp3ratings-vote-bar a').each(function(i,e) {
+              if(i <= tp3ratings.ratingRequest.rating)  $(this).addClass("voted")
+              else $(this).removeClass("voted")
+            })
         $('#tp3review').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
+            var button = $(tp3ratings.relatedTarget) // Button that triggered the modal
 
             var modal = $(this);
 

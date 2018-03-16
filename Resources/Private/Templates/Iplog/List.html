@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:render partial="Ratingsdata/Styling" arguments="{settings:settings}" />
+
+	<div id="tx_tp3ratings-reviewlist">
+		<f:render partial="Iplog/Review" arguments="{settings:settings}" />
+
+
+	</div>
+	<f:if condition="{debugMode}"><f:debug>{_all}</f:debug></f:if>
+
+</f:section>
+</html>

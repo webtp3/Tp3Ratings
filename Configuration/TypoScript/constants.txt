@@ -21,7 +21,7 @@ plugin.tx_tp3ratings_tp3feratings.minValue = 1
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int; label=Minimum rating value;Warning: this value must not be changed after ratings start working or results will be incorrect! You may also need to change CSS styles to display ratings properly
 plugin.tx_tp3ratings_tp3feratings.maxValue = 5
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating voted color
-plugin.tx_tp3ratings_tp3feratings.votedColor = {$plugin.bootstrap_package.settings.less.brand-primary};
+plugin.tx_tp3ratings_tp3feratings.votedColor = {$plugin.bootstrap_package.settings.less.brand-primary}
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating if not set falls back to linkcolor
 plugin.tx_tp3ratings_tp3feratings.Color = #fff;
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating Icons (select you icon galery)

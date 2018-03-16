@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:for each="{tp3reviewdata}" as="tp3review">
+    <div class="tp3review-item">
+
+        <div class="tp3review-rating">
+            {tp3reviewdata.ratingvalue}
+        </div>
+        <div class="tp3review-text">
+           {tp3reviewdata.review} <br />
+        </div>
+        <div class="tp3review-mail">
+            {tp3reviewdata.userid}
+        </div>
+    </div>
+</f:for>
