@@ -9,8 +9,8 @@ plugin.tx_tp3ratings_tp3feratings {
     layoutRootPath = EXT:tp3ratings/Resources/Private/Layouts/
   }
   persistence {
-    # cat=plugin.tx_tp3ratings_tp3feratings//a; type=string; label=Default storage PID
-    storagePid = 102
+    # cat=plugin.tx_tp3ratings_tp3feratings//a; type=string; label=Default storage PID overridden by $GLOBALS["TSFE"]->domainStartPage
+    storagePid =
   }
 }
 

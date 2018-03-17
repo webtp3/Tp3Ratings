@@ -307,7 +307,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
             }
             else{
-                $iplog->setPid(  $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+                $iplog->setPid(  $GLOBALS["TSFE"]->domainStartPage ?  $GLOBALS["TSFE"]->domainStartPage :  $GLOBALS["TSFE"]->page["uid"]);
 
             }
             $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
@@ -325,7 +325,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                   $ratingsdata->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
               }
               else{
-                  $ratingsdata->setPid(   $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+                  $ratingsdata->setPid(   $GLOBALS["TSFE"]->domainStartPage ?  $GLOBALS["TSFE"]->domainStartPage :  $GLOBALS["TSFE"]->page["uid"]);
 
               }
                 if (trim($ratingsdata->getRef()) == '') {
@@ -379,7 +379,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         //	$infoWindowView->setLayoutName("Rating");
         // Objekt �bergeben und Template verarbeiten
         $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
-        $infoWindowView->assign('ratingsdata', json_encode($ratingsdata));
+        $infoWindowView->assign('ratingsdata', json_encode($ratingsdata->_getCleanProperties()));
         $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
@@ -409,14 +409,14 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                     $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
                 }
                 else{
-                    $iplog->setPid(  $this->conf["persistence"]["storagePid"] ?  $this->conf["persistence"]["storagePid"] :  $GLOBALS["TSFE"]->page["uid"]);
+                    $iplog->setPid(  $GLOBALS["TSFE"]->domainStartPage ?  $GLOBALS["TSFE"]->domainStartPage :  $GLOBALS["TSFE"]->page["uid"]);
 
                 }
 
             }
             $iplog->ref->setReviewCount($iplog->ref->getReviewCount()+1);
-            $iplog->setReview($this->tp3reviewdata["review"]);
-            $iplog->setUserid($this->tp3reviewdata["emailadresse"]);
+            $iplog->setReview(is_string($this->tp3reviewdata["review"]));
+            $iplog->setUserid(is_string ($this->tp3reviewdata["emailadresse"]));
             $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
             /*
              *   $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession();
@@ -506,7 +506,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->conf = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK , $this->extensionName);
         $this->pageRenderer = $this->objectManager->get('TYPO3\\CMS\\Core\\Page\\PageRenderer');
         $this->view->assign('cObjData', $cObjData);
-        $this->view->assign('debugMode', true);
+        $this->view->assign('debugMode', false);
 
 
     }

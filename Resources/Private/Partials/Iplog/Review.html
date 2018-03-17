@@ -1,16 +1,21 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{debugMode}"><f:debug>{_all}</f:debug></f:if>
 <f:for each="{tp3reviewdata}" as="tp3review">
-    <div class="tp3review-item-{tp3review.uid}">
+    <f:cycle values="{0: 'odd', 1: 'even'}" as="zebraClass">
 
+    <div class="tp3review-item-{tp3review.uid} item {zebraClass}">
         <div class="tp3review-rating">
+
             {tp3review.ratingvalue}
         </div>
         <div class="tp3review-text">
            {tp3review.review} <br />
         </div>
-        <div class="tp3review-mail">
-            {tp3review.userid}
+        <div class="tp3review-details">
+           <span class="ref">{tp3review.ref.obj} {tp3review.ref.ref}</span>
+            <span class="date"><f:format.date format="Y-m-d H:i:s">{tp3review.crdate}</f:format.date></span>
+            <span style="display:none">{tp3review.userid}</span>
         </div>
     </div>
+    </f:cycle>
 </f:for>

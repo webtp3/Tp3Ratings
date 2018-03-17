@@ -50,6 +50,7 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function getList($list = null) {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setStoragePageIds(array($GLOBALS["TSFE"]->domainStartPage));
         $querySettings->setRespectStoragePage(false);
         $this->setDefaultQuerySettings($querySettings);
         $uids = explode(",",$list[1]);

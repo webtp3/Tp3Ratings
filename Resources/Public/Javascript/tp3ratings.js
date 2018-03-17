@@ -70,7 +70,7 @@ var  tp3ratings = tp3ratings || {
 
         }
         $('#tp3review').find('.tx_tp3ratings-vote-bar a').each(function(i,e) {
-              if(i <= tp3ratings.ratingRequest.rating)  $(this).addClass("voted")
+              if(i < tp3ratings.ratingRequest.rating)  $(this).addClass("voted")
               else $(this).removeClass("voted")
             })
         $('#tp3review').on('show.bs.modal', function (event) {
