@@ -1,9 +1,6 @@
 <?php
 defined('TYPO3_MODE') || die('Access denied.');
 
-call_user_func(
-    function($extKey)
-	{
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Tp3.Tp3ratings',
@@ -48,7 +45,7 @@ call_user_func(
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         tp3feratings {
-                            icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Icons/user_plugin_tp3feratings.svg
+                            iconIdentifier = ext-'.$_EXTKEY.'-wizard-icon
                             title = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_tp3feratings
                             description = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_tp3feratings.description
                             tt_content_defValues {
@@ -66,7 +63,7 @@ call_user_func(
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         tp3reviews {
-                            icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Icons/user_plugin_tp3reviews.svg
+                        	iconIdentifier = ext-'.$_EXTKEY.'-review-wizard-icon
                             title = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tp3ratings_tp3reviews
                             description = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tp3ratings_tp3reviews.description
                             tt_content_defValues {
@@ -79,6 +76,23 @@ call_user_func(
                 }
            }'
         );
-    },
-    $_EXTKEY
-);
+        /*
+       * Icons
+       */
+        if (TYPO3_MODE === 'BE') {
+            $icons = [
+                'ext-'.$_EXTKEY.'-wizard-icon' => 'user_plugin_tp3feratings.svg',
+                'ext-'.$_EXTKEY.'-review-wizard-icon' => 'user_plugin_tp3reviews.svg',
+
+            ];
+            $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+            foreach ($icons as $identifier => $path) {
+                $iconRegistry->registerIcon(
+                    $identifier,
+                    \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+                    ['source' => 'EXT:'.$_EXTKEY.'/Resources/Public/Icons/' . $path]
+                );
+            }
+        }
+   
+

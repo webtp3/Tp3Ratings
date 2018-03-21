@@ -2,7 +2,8 @@
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog',
-        'label' => 'ip',
+        'label' => 'userid',
+        'label_alt' => 'ip',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -101,24 +102,29 @@ return [
         ],
 		'starttime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
+                'renderType' => 'inputDateTime',
                 'default' => 0,
-            ]
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],            ]
         ],
         'endtime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
+                'renderType' => 'inputDateTime',
                 'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ]
@@ -140,7 +146,10 @@ return [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default'
             ]
         ],
         'ratingvalue' => [

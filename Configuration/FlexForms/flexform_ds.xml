@@ -24,17 +24,6 @@
 					</config>
 				</TCEforms>
 			</storagePid>
-			<templateFile>
-				<TCEforms>
-					<label>LLL:EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_ratingsdata.xlf:tt_content.pi_flexform.template_file</label>
-					<config>
-						<type>input</type>
-						<eval>trim</eval>
-						<default></default>
-						
-					</config>
-				</TCEforms>
-			</templateFile>
 		</el>
 	</ROOT>
 </T3DataStructure>

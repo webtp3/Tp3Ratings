@@ -11,11 +11,28 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['tp3ratings_t
 
 
 /* Add the plugins */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:tp3ratings/Resources/Private/Languages/locallang_db.xlf:tt_content.tp3ratings_tp3feratings', 'tp3ratings_tp3feratings'),'list_type', 'tp3ratings');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:tp3ratings/Resources/Private/Languages/locallang_db.xlf:tt_content.tp3ratings_tp3reviews', 'tp3ratings_tp3reviews'),'list_type', 'tp3ratings');
+$pluginSignature = "Tp3feratings";
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Tp3.Tp3ratings',
+    $pluginSignature,
+    'tp3 Ratings FE'
+);
+
+$pluginSignature = "Tp3reviews";
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Tp3.Tp3ratings',
+    $pluginSignature,
+    'tp3 Reviews'
+);
+//\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:tp3ratings/Resources/Private/Languages/locallang_db.xlf:tt_content.tp3ratings_tp3feratings', 'tp3ratings_tp3feratings'),'list_type', 'tp3ratings');
+//\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:tp3ratings/Resources/Private/Languages/locallang_db.xlf:tt_content.tp3ratings_tp3reviews', 'tp3ratings_tp3reviews'),'list_type', 'tp3ratings');
 
 /* Add the flexforms to the TCA */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('tp3ratings_tp3feratings', 'FILE:EXT:tp3ratings/Configuration/FlexForms/flexform_ds.xml');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('tp3ratings_tp3reviews', 'FILE:EXT:tp3ratings/Configuration/FlexForms/flexform_reviews.xml');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_ratingsdata', 'EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_ratingsdata.xlf');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_iplog', 'EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_iplog.xlf');
 
 ?>

@@ -20,13 +20,12 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '1.2.1',
+  'version' => '1.2.3',
   'constraints' => 
   array (
     'depends' => 
     array (
         'typo3' => '7.6.0-8.9.99',
-        'tp3mods' => '*',
     ),
     'conflicts' => 
     array (
@@ -34,6 +33,7 @@ $EM_CONF[$_EXTKEY] = array (
     'suggests' => 
     array (
         'bootstrap_package' => '8.0.0-8.9.99',
+        'tp3mods' => '*',
     ),
   ),
     'autoload' =>
