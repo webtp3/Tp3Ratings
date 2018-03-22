@@ -1,5 +1,5 @@
 #Tp3ratings for typo3
-Ratings + Riviews for typo3 webpages incl. microdata 
+Ratings + Reviews for typo3 webpages incl. microdata 
 
 ##install
  
