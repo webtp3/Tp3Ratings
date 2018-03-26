@@ -2,14 +2,14 @@
 plugin.tx_tp3ratings_tp3reviews {
     view{
         templateRootPaths.0 = EXT:tp3ratings/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.templateRootPath}
+        templateRootPaths.1 = {$plugin.tx_tp3ratings_tp3feratings.view.templateRootPath}
         partialRootPaths.0 = EXT:tp3ratings/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.partialRootPath}
+        partialRootPaths.1 = {$plugin.tx_tp3ratings_tp3feratings.view.partialRootPath}
         layoutRootPaths.0 = EXT:tp3ratings/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3reviews.view.layoutRootPath}
+        layoutRootPaths.1 = {$plugin.tx_tp3ratings_tp3feratings.view.layoutRootPath}
     }
     persistence{
-        storagePid = {$plugin.tx_tp3ratings_tp3reviews.persistence.storagePid}
+        storagePid = {$plugin.tx_tp3ratings_tp3feratings.persistence.storagePid}
 
         recursive = 1
     }

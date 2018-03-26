@@ -22,8 +22,8 @@ Target group: **Editors**
    :alt: Backend View
    :width: 1020px
 
-.. figure:: ../Images/layouts.png
-   :alt: layout Overview
+.. figure:: ../Images/Review.png
+   :alt: Reviews Backend
    :width: 1020px
 
 

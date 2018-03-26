@@ -25,7 +25,8 @@ To install the extension, perform the following steps:
 
 #. Go to the Extension Manager and install tp3ratings
 #. You can add tp3mods to have the advantage of further microdata
-#. afterwards you should include the static template tp3ratings or add the tssetup manualy
+#. afterwards you should include the static template tp3ratings or add the tssetup manualy (there are two plugins ratings & reviews)
+
 
 Afterwards you can use the plugin as contentelement.
 for some features you mighht have to regiser a Api ID in den dependent service
@@ -42,7 +43,7 @@ for some features you mighht have to regiser a Api ID in den dependent service
 Configuration
 -------------
 
- after following up the stratingsnetowrks and facebookmkratings networks this extention provides with severalratings tools:
+ after following up the tx_ratings provides with reviews and ratings:
 Contribute at https://github.com/webtp3/tp3ratings
 
 .. _admin-faq:

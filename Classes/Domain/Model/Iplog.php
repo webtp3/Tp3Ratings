@@ -120,8 +120,9 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->session = $session;
     }
+
     /**
-     * session
+     * crdate
      *
      * @var string
      */
@@ -136,7 +137,7 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getCrdate()
     {
-        return gmdate("Y-m-d\TH:i:s\Z", intval($this->crdate));
+        return $this->crdate;
     }
 
     /**

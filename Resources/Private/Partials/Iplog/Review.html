@@ -1,20 +1,21 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-{namespace tp3=Tp3\Tp3ratings\ViewHelpers\CountVotelink}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:tp3="http://typo3.org/ns/Tp3/Tp3ratings/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 <f:if condition="{debugMode}"><f:debug>{_all}</f:debug></f:if>
 <f:for each="{tp3reviewdata}" as="tp3review">
     <f:cycle values="{0: 'odd', 1: 'even'}" as="zebraClass">
 
     <div class="tp3review-item-{tp3review.uid} item {zebraClass}">
         <div class="tp3review-rating">
-            <tp3:render arguments="{tp3review.ratingvalue}" />
+           <span class="ratingvalue" {tp3review.ratingvalue} / 5 </span> <tp3:CountVotelink arguments="{tp3review.ratingvalue}" />
 
-            {tp3review.ratingvalue}
+
         </div>
         <div class="tp3review-text">
             <f:format.raw>{tp3review.review}</f:format.raw><br>
         </div>
         <div class="tp3review-details">
-           <span class="ref">{tp3review.ref.obj} {tp3review.ref.ref}</span>
+           <span class="ref"><f:link.typolink parameter="{tp3review.ref.ref}">{tp3review.ref.obj}</f:link.typolink> </span>
             <span class="date"><f:format.date format="Y-m-d H:i:s">{tp3review.crdate}</f:format.date></span>
             <span style="display:none">{tp3review.userid}</span>
         </div>

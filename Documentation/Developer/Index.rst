@@ -14,7 +14,7 @@ Developer Corner
 Target group: **Developers**
 
 this extension is started with the extention builder.
-calls the plugin with the consiguration.
+calls the plugin with the configuration.
 Could be moved to fluid - was lazy
 
 

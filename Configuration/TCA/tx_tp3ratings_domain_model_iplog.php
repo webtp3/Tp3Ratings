@@ -88,6 +88,19 @@ return [
                 ],
             ],
         ],
+        'crdate' => [
+            'label' => 'timestamp',
+            'config' => [
+                'type' => 'input',
+                'size' => 13,
+                'eval' => 'datetime',
+                'renderType' => 'inputDateTime',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -111,7 +124,8 @@ return [
                 'default' => 0,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
-                ],            ]
+                ],
+            ]
         ],
         'endtime' => [
             'exclude' => true,

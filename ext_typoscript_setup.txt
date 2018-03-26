@@ -8,6 +8,7 @@ plugin.tx_extbase {
 		          recordType = Tp3\Tp3ratings\Domain\Model\Iplog
 		             columns {
                             ref.mapOnProperty = Tp3\Tp3ratings\Domain\Model\Ratinsgdata
+						 	crdate.mapOnProperty = crdate
                      }
 		         }
 		         subclasses {

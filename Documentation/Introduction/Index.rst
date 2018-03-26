@@ -18,8 +18,9 @@ What does it do?
 ----------------
 
 
-simply disoplay share icons (twitter, facebook, linkedon, xing,....) or facebookratings Plugins on your homepage.
-Logins, Pages, Comments, Share Buttons and more
+ratings and reviews on your homepage.
+Incl. Microdata for google & co
+
 
 
 .. _screenshots:
