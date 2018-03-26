@@ -400,7 +400,11 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             $remoteaddress =  $_SERVER['HTTP_X_FORWARDED_FOR'];
         }
         else $remoteaddress =$_SERVER['REMOTE_ADDR'];
-        $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"], $GLOBALS["TSFE"]->fe_user->id)->getFirst();
+
+        if($GLOBALS['TSFE']->loginUser)$iplog = $this->iplogRepository->findFeUserEmail( $GLOBALS['TSFE']->fe_user->email ,$GLOBALS["TSFE"]->page["uid"])->getFirst();
+        if(!$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
+            $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress,$GLOBALS["TSFE"]->page["uid"], $GLOBALS["TSFE"]->fe_user->id)->getFirst();
+        }
 
             if(!$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog){
                 $iplog = $this->objectManager->get('Tp3\\Tp3ratings\\Domain\\Model\\Iplog');
@@ -415,8 +419,8 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
             }
             $iplog->ref->setReviewCount($iplog->ref->getReviewCount()+1);
-            $iplog->setReview(is_string($this->tp3reviewdata["review"]));
-            $iplog->setUserid(is_string ($this->tp3reviewdata["emailadresse"]));
+            $iplog->setReview((is_string($this->tp3reviewdata["review"]) ? $this->tp3reviewdata["review"] : ""));
+            $iplog->setUserid((is_string($this->tp3reviewdata["emailadresse"]) ? $this->tp3reviewdata["emailadresse"] : ""));
             $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
             /*
              *   $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession();
@@ -438,7 +442,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 }
                 //$ratingsdata->setSubmittext($this->controllerContext->getFlashMessageQueue());
                 $this->persistenceManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class);
-                $this->persistenceManager->persistAll();;
+                $this->persistenceManager->persistAll();
 
 
 

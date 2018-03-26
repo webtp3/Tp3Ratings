@@ -64,6 +64,8 @@ var  tp3ratings = tp3ratings || {
                 });
 
             event.preventDefault();
+            return false;
+
         });
         if($('#tp3review').find('.tx_tp3ratings-vote-bar').length == 0 ){
             $('.tx_tp3ratings-vote-bar').clone(true).appendTo($('#tp3review').find('.tp3review-rating')).css({position:"relative",width:"50%"});

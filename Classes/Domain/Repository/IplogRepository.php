@@ -41,6 +41,28 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         );
         return $query->execute();
     }
+    /**
+     *
+     *
+     * @param integer $catUID
+     * @return Tp3\Tp3ratings\Domain\Model\Iplog
+     */
+    public function findFeUserEmail($email,$pid) {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setRespectStoragePage(false);
+
+        $this->setDefaultQuerySettings($querySettings);
+        $query = $this->createQuery();
+        $query->matching(
+            $query->equals('userid', $email),
+            $query->logicalAnd(
+                $query->equals('hidden', 0),
+                $query->equals('ref', $pid),
+                $query->equals('deleted', 0)
+            )
+        );
+        return $query->execute();
+    }
 
     /**
      *
