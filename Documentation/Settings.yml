@@ -10,8 +10,8 @@
 conf.py:
   copyright: 2018
   project: tp3ratings
-  version: 0.1
-  release: 0.1.4
+  version: 1.2
+  release: 1.2.5
   latex_documents:
   - - Index
     - tp3ratings.tex

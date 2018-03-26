@@ -241,8 +241,10 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         //   $this->pageRenderer->addFooterData('<script type="text/javascript" src="typo3conf/ext/tp3ratings/Resources/Public/Javascript/tp3ratings.js"></script>');
         $langflip = $this->gettranslation('api_rating');
         $this->view->assign('ratingstext', sprintf($langflip,$ratingsdatas->getRating()/$ratingsdatas->getVotecount(),$this->settings["maxValue"], $ratingsdatas->getVotecount()));
-
+        if($GLOBALS['TSFE']->loginUser)$iplog = $this->iplogRepository->findFeUserEmail( $GLOBALS['TSFE']->fe_user->email ,$GLOBALS["TSFE"]->page["uid"])->getFirst();
         $this->view->assign('ratingsdata', $ratingsdatas);
+        $this->view->assign('iplog', $iplog);
+
     }
 
     /**
@@ -380,6 +382,8 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         // Objekt �bergeben und Template verarbeiten
         $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
         $infoWindowView->assign('ratingsdata', json_encode($ratingsdata->_getCleanProperties()));
+        $infoWindowView->assign('iplog', json_encode($iplog->_getCleanProperties()));
+
         $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
@@ -476,6 +480,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         // Objekt �bergeben und Template verarbeiten
         $infoWindowView->assign('disableReview', $this->settings["disableReview"]);
         $infoWindowView->assign('ratingsdata', json_encode($this->tp3reviewdata));
+        $infoWindowView->assign('iplog', json_encode($iplog));
         $infoWindowView->assign('settings', $this->settings);
         // Rendern und zurueckgeben
         $infoWindow = $infoWindowView->render();
@@ -510,7 +515,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->conf = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK , $this->extensionName);
         $this->pageRenderer = $this->objectManager->get('TYPO3\\CMS\\Core\\Page\\PageRenderer');
         $this->view->assign('cObjData', $cObjData);
-        $this->view->assign('debugMode', false);
+        $this->view->assign('debugMode', $this->conf["debugMode"]);
 
 
     }

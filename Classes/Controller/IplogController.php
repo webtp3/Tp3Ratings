@@ -39,7 +39,7 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $filter = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\Tp3\Tp3ratings\Plugin\IplogReviews::class)->main($cObj,$this->conf);
 
         $iplogs = $this->iplogRepository->getList($filter);
-        $this->view->assign('debugMode', true);
+        $this->view->assign('debugMode', $this->conf["debugMode"]);
         $this->view->assign('tp3reviewdata', $iplogs);
     }
 
