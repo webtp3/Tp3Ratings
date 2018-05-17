@@ -13,6 +13,7 @@ Configuration Reference
 
 Configure dependent variabels:
 
+.. code-block:: typoscript
 
         # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Storage page id;UID of the page where rating records will be stored
         plugin.tx_tp3ratings_tp3feratings.storagePid =

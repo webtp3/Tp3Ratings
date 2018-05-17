@@ -23,7 +23,7 @@ plugin.tx_tp3ratings_tp3feratings.maxValue = 5
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating voted color
 plugin.tx_tp3ratings_tp3feratings.votedColor = {$plugin.bootstrap_package.settings.less.brand-primary}
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating if not set falls back to linkcolor
-plugin.tx_tp3ratings_tp3feratings.Color = #fff;
+plugin.tx_tp3ratings_tp3feratings.Color = {$plugin.bootstrap_package.settings.less.text-color}
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating Icons (select you icon galery)
 plugin.tx_tp3ratings_tp3feratings.IconType = glyphicon
 # cat=plugin.tx_tp3ratings_tp3feratings/setup; type=int+; label=Rating icon Obect star, ok and more depends on icontype

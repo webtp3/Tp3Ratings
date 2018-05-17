@@ -306,13 +306,21 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
             $iplog->setIp($remoteaddress);
             if($ratingsdata->obj == "pages" ) {
-                $iplog->setPid(  $this->request->hasArgument("ref") ? $this->request->getArgument("ref") :  $GLOBALS["TSFE"]->page["uid"]);
+                $iplog->setPid(  $this->request->hasArgument("ref") ? intval($this->request->getArgument("ref")) :  $GLOBALS["TSFE"]->page["uid"]);
             }
             else{
                 $iplog->setPid(  $GLOBALS["TSFE"]->domainStartPage ?  $GLOBALS["TSFE"]->domainStartPage :  $GLOBALS["TSFE"]->page["uid"]);
 
             }
-            $iplog->SetSession($GLOBALS["TSFE"]->fe_user->id);
+            $session =  $GLOBALS['TSFE']->fe_user->fetchUserSession();
+            if($session){
+
+
+            }else{
+                session_start ();
+                $GLOBALS['TSFE']->fe_user->storeSessionData();
+            }
+            $iplog->SetSession( $GLOBALS["TSFE"]->fe_user->id);
             $data_str =  $this->request->hasArgument("ratingdata") ? $this->request->getArgument("ratingdata") : '';
             $ratingsdata->setCheck( $this->request->hasArgument("check") ? $this->request->getArgument("check") : false);
 
