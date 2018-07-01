@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "tp3ratings".
  *
- * Auto generated 25-01-2018 22:23
+ * Auto generated 21-05-2018 23:13
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -21,30 +21,28 @@ $EM_CONF[$_EXTKEY] = array (
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
   'version' => '1.2.6',
-    'constraints' =>
-        array (
-            'depends' =>
-                array (
-                    'typo3' => '8.7.0-9.0.99',
-                    'bootstrap_package' => '8.0.0-8.9.99',
-                ),
-            'conflicts' =>
-                array (
-
-                ),
-            'suggests' =>
-                array (
-                ),
-        ),
-    'autoload' =>
-        array (
-            'psr-4' =>
-                array (
-                    'Tp3\\Tp3ratings\\' => 'Classes',
-                ),
-        ),
-    'clearcacheonload' => false,
-    'author_company' => 'tp3',
-
+  'constraints' => 
+  array (
+    'depends' => 
+    array (
+      'typo3' => '8.7.0-9.0.99',
+      'bootstrap_package' => '8.0.0-8.9.99',
+    ),
+    'conflicts' => 
+    array (
+    ),
+    'suggests' => 
+    array (
+    ),
+  ),
+  'autoload' => 
+  array (
+    'psr-4' => 
+    array (
+      'Tp3\\Tp3ratings\\' => 'Classes',
+    ),
+  ),
+  'clearcacheonload' => false,
+  'author_company' => 'tp3',
 );
 
