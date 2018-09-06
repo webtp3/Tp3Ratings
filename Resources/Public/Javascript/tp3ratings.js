@@ -1,5 +1,5 @@
 var  tp3ratings = tp3ratings || {
-    base : $("base").length > 0 ? $("base").attr("href")+"/" : (window.location.protocol + "//" + window.location.host +"/" ),
+    base : $("base").length > 0 ? $("base").attr("href") +"/" : (window.location.protocol + "//" + window.location.host +"/" ),
         ratingRequest:{
             rating: undefined,
             ref : undefined,
