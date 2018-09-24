@@ -92,13 +92,13 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var integer
      */
-    protected $reviewCount = 0;
+    protected $reviewCount = 1;
     /**
      * ratingCount
      *
      * @var integer
      */
-    protected $ratingCount= 0;
+    protected $ratingCount= 1;
     
     /**
      * bestRating
