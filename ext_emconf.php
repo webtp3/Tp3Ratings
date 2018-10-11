@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '1.2.7',
+  'version' => '1.2.12',
   'constraints' => 
   array (
     'depends' => 
@@ -33,6 +33,7 @@ $EM_CONF[$_EXTKEY] = array (
     ),
     'suggests' => 
     array (
+        'tp3mods' => '*',
     ),
   ),
   'autoload' => 
