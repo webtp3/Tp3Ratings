@@ -37,7 +37,7 @@ plugin.tx_tp3ratings_tp3feratings {
 
 page.includeCSS.tp3ratings = EXT:tp3ratings/Resources/Public/Css/styles.css
 
-[{$plugin.tx_tp3ratings_tp3feratings.additionalCSS}]
+[globalVar = LIT:1 = {$plugin.tx_tp3ratings_tp3feratings.additionalCSS}]
 page.includeCSS.tp3feratings_additionalCSS = {$plugin.tx_tp3ratings_tp3feratings.additionalCSS}
 [END]
 
