@@ -75,7 +75,8 @@ return [
         'cruser_id' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.cruser_id',
             'config' => [
-                'type' => 'inline',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => array (
                     array('Bitte wählen',''),
                 ),
