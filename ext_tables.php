@@ -1,18 +1,20 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 defined('TYPO3_MODE') || die('Access denied.');
 
-
-       
        // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'tp3ratings');
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tp3ratings_domain_model_ratingsdata');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tp3ratings_domain_model_iplog');
 
-
-        
         $tx_tp3ratings_tp3feratings_sysconf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
         $tx_tp3ratings_tp3feratings_debug_mode_disabled = is_array($tx_tp3ratings_tp3feratings_sysconf) && !intval($tx_tp3ratings_tp3feratings_sysconf['debugMode']);
-
 
         /*
          *  moved to tcs / overrides
@@ -43,5 +45,3 @@ defined('TYPO3_MODE') || die('Access denied.');
         //\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($_EXTKEY.'_'.strtolower($pluginSignature), 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/'.$pluginSignature.'.xml');
        //$ExtensionManagementUtility::addPiFlexFormValue($_EXTKEY.'_'.strtolower($pluginSignature), 'FILE:EXT:'.$_EXTKEY.'Configuration/FlexForms/flexform_ds.xml');
        // $ExtensionManagementUtility::addPlugin(array('LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1', $_EXTKEY.'_tp3feratings'),'list_type');
-        
-

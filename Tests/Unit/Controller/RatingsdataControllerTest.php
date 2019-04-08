@@ -1,10 +1,16 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Tests\Unit\Controller;
 
 /**
  * Test case.
  *
- * @author Thomas Ruta <email@thomasruta.de>
  */
 class RatingsdataControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
@@ -32,7 +38,6 @@ class RatingsdataControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function listActionFetchesAllRatingsdatasFromRepositoryAndAssignsThemToView()
     {
-
         $allRatingsdatas = $this->getMockBuilder(\TYPO3\CMS\Extbase\Persistence\ObjectStorage::class)
             ->disableOriginalConstructor()
             ->getMock();

@@ -14,6 +14,19 @@
     },
     "replace": {
         "tp3ratings": "self.version"
-    }
+    },
+    "require-dev": {
+        "nimut/testing-framework": "^1.0 || ^2.0 || ^3.0 || ^4.0",
+        "web-tp3/cag_tests":"^1.2",
+        "phpunit/phpunit": "*",
+        "helhum/typo3-console": "^5",
+        "typo3/testing-framework": "*"
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Tp3\\Tp3ratings\\": "Tests/"
+        }
+    },
     
 }

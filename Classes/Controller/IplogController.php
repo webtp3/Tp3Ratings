@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Controller;
 
 /***
@@ -19,7 +26,7 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
      * iplogRepository
-     * 
+     *
      * @var \Tp3\Tp3ratings\Domain\Repository\IplogRepository
      * @inject
      */
@@ -27,35 +34,34 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * action list
-     * 
+     *
      * @return void
      */
     public function listAction()
     {
         $cObj = $this->configurationManager->getContentObject();
 
-       $this->conf = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $this->conf = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
-        $filter = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\Tp3\Tp3ratings\Plugin\IplogReviews::class)->main($cObj,$this->conf);
+        $filter = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\Tp3\Tp3ratings\Plugin\IplogReviews::class)->main($cObj, $this->conf);
 
         $iplogs = $this->iplogRepository->getList($filter);
-        $this->view->assign('debugMode', $this->conf["debugMode"]);
+        $this->view->assign('debugMode', $this->conf['debugMode']);
         $this->view->assign('tp3reviewdata', $iplogs);
     }
 
     /**
      * action new
-     * 
+     *
      * @return void
      */
     public function newAction()
     {
-
     }
 
     /**
      * action create
-     * 
+     *
      * @param \Tp3\Tp3ratings\Domain\Model\Iplog $newIplog
      * @return void
      */
