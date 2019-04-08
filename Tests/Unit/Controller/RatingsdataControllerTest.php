@@ -8,11 +8,13 @@
 
 namespace Tp3\Tp3ratings\Tests\Unit\Controller;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
+
 /**
  * Test case.
  *
  */
-class RatingsdataControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class RatingsdataControllerTest extends UnitTestCase
 {
     /**
      * @var \Tp3\Tp3ratings\Controller\RatingsdataController

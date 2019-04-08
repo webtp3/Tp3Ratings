@@ -13,7 +13,9 @@
         }
     },
     "replace": {
-        "tp3ratings": "self.version"
+        "tp3ratings": "self.version",
+        "web-tp3/tp3ratings": "self.version"
+
     },
     "require-dev": {
         "nimut/testing-framework": "^1.0 || ^2.0 || ^3.0 || ^4.0",
@@ -22,11 +24,20 @@
         "helhum/typo3-console": "^5",
         "typo3/testing-framework": "*"
     },
-
     "autoload-dev": {
         "psr-4": {
             "Tp3\\Tp3ratings\\": "Tests/"
         }
     },
-    
+    "scripts": {
+        "test:php:unit": [
+            "@php -v",
+            "@php .Build/bin/phpunit Tests/Unit"
+        ]
+
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    }
 }

@@ -7,12 +7,13 @@
  */
 
 namespace Tp3\Tp3ratings\Tests\Unit\Domain\Model;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
  *
  */
-class IplogTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class IplogTest extends UnitTestCase
 {
     /**
      * @var \Tp3\Tp3ratings\Domain\Model\Iplog
