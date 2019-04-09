@@ -37,7 +37,7 @@ class RatingsdataTest extends UnitTestCase
     public function getRatingReturnsInitialValueForString()
     {
         self::assertSame(
-            '',
+            5,
             $this->subject->getRating()
         );
     }
@@ -62,7 +62,7 @@ class RatingsdataTest extends UnitTestCase
     public function getVotecountReturnsInitialValueForString()
     {
         self::assertSame(
-            '',
+            1,
             $this->subject->getVotecount()
         );
     }
@@ -87,7 +87,7 @@ class RatingsdataTest extends UnitTestCase
     public function getRefReturnsInitialValueForString()
     {
         self::assertSame(
-            '',
+            0,
             $this->subject->getRef()
         );
     }

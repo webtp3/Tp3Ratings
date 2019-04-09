@@ -285,7 +285,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $iplog = $this->iplogRepository->findbyIpandRef($remoteaddress, $GLOBALS['TSFE']->page['uid'], $GLOBALS['TSFE']->fe_user->id)->getFirst();
         // $this->settings["disableIpCheck"] = 1;
         if ($this->settings['disableIpCheck'] == 1 || !$iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog) {
-            if ($ratingsdata instanceof \Tp3\Tp3ratings\Domain\Model\Ratingsdata && intval($ratingsdata->getVotecount()) > 0) {
+            if ($ratingsdata instanceof \Tp3\Tp3ratings\Domain\Model\Ratingsdata && (int)$ratingsdata->getVotecount() > 0) {
                 if ($iplog instanceof \Tp3\Tp3ratings\Domain\Model\Iplog) {
                     $ratingsdata->setTip('update');
                     $ratingsdata->setSubmittext($this->gettranslation('api_already_thx'));
@@ -494,11 +494,11 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     private function setDefaultViewVars()
     {
-        if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('extbase')) >= 1003000) {
-            $cObjData = $this->configurationManager->getContentObject()->data;
-        } else {
-            $cObjData = $this->request->getContentObjectData();
-        }
+//        if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getExtensionVersion('extbase')) >= 1003000) {
+//            $cObjData = $this->configurationManager->getContentObject()->data;
+//        } else {
+//            $cObjData = $this->request->getContentObjectData();
+//        }
         $this->extKey = 'tp3ratings';
         //   $this->conf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']["tx_".strtolower($this->extKey)]);
         //	$this->layout = $this->settings["layout"] ? $this->settings["layout"] : "style05";
@@ -506,7 +506,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $configurationManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
         $this->conf = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, $this->extensionName);
         $this->pageRenderer = $this->objectManager->get('TYPO3\\CMS\\Core\\Page\\PageRenderer');
-        $this->view->assign('cObjData', $cObjData);
+        $this->view->assign('cObjData', $this->configurationManager->getContentObject()->data);
         $this->view->assign('debugMode', $this->conf['debugMode']);
     }
     /**
