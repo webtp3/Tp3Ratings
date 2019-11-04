@@ -39,6 +39,6 @@ $pluginSignature = 'Tp3reviews';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('tp3ratings_tp3feratings', 'FILE:EXT:tp3ratings/Configuration/FlexForms/flexform_ds.xml');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('tp3ratings_tp3reviews', 'FILE:EXT:tp3ratings/Configuration/FlexForms/flexform_reviews.xml');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_ratingsdata', 'EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_ratingsdata.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_ratingsdata', 'EXT:tp3ratings/Resources/Private/Language/locallang.de.xlf');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_tp3ratings_domain_model_iplog', 'EXT:tp3ratings/Resources/Private/Language/locallang_csh_tx_tp3ratings_domain_model_iplog.xlf');

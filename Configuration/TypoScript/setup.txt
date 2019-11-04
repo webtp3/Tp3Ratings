@@ -13,7 +13,7 @@ plugin.tx_tp3ratings_tp3feratings {
     recursive = 1
   }
   features{
-    #skipDefaultArguments = 1
+     skipDefaultArguments = 1
   }
   settings{
         disableReview = {$plugin.tx_tp3ratings_tp3feratings.disableReview}
