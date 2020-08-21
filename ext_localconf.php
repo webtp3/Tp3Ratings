@@ -33,12 +33,15 @@ defined('TYPO3_MODE') || die('Access denied.');
         $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['rating'] = 'EXT:tp3ratings/Classes/Renderer/Tp3Bootstrap.php';//Tp3\Tp3ratings\Controller\RatingsdataController::class . '->RatingAction';//
         $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['review'] = 'EXT:tp3ratings/Classes/Renderer/Tp3Bootstrap.php';//Tp3\Tp3ratings\Controller\RatingsdataController::class . '->RatingAction';//
 
-        /***************
-         * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades
-         */
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Tp3\Tp3ratings\Updates\Tp3ratingsContentElementUpdate::class]
-            = \Tp3\Tp3ratings\Updates\Tp3RatingsContentElementUpdate::class;
+        if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) < 10004000) {
 
+            /***************
+             * Extend TYPO3 upgrade wizards to handle boostrap package specific upgrades
+             */
+
+            $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][\Tp3\Tp3ratings\Updates\Tp3ratingsContentElementUpdate::class]
+                = \Tp3\Tp3ratings\Updates\Tp3RatingsContentElementUpdate::class;
+        }
         // wizards
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             'mod {

@@ -4,8 +4,8 @@
     "description" : "ratings & microdata 4 tp3",
     "license": "GPL-2.0+",
     "require": {
-        "php": ">=5.3 <7.3",
-        "typo3/cms-core": "^7.6|| ^8.2 || ^9"
+        "php": ">=5.3 <7.4",
+        "typo3/cms-core": "^8.7 || ^9 || 10.4"
     },
     "autoload": {
         "psr-4": {
