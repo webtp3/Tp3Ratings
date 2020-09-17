@@ -13,7 +13,8 @@
         }
     },
     "replace": {
-        "tp3ratings": "self.version"
+        "typo3-ter/tp3ratings": "self.version",
+        "web-tp3/tp3ratings": "self.version"
     }
     
 }
