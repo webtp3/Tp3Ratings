@@ -13,11 +13,12 @@ namespace Tp3\Tp3ratings\Renderer;
 /**
  * Gets the Ajax Call Parameters
  */
-$_gp = \TYPO3\CMS\Core\Utility\GeneralUtility::_POST();
-$_gp = \TYPO3\CMS\Extbase\Utility\ArrayUtility::arrayMergeRecursiveOverrule(
-    $_gp,
-    \TYPO3\CMS\Core\Utility\GeneralUtility::_GET()
-);
+$_gp =     \TYPO3\CMS\Core\Utility\GeneralUtility::_GET();
+// Post not needed
+//$_gp = \TYPO3\CMS\Core\Utility\ArrayUtility::arrayMergeRecursiveOverrule(
+//    $_gp,
+//    \TYPO3\CMS\Core\Utility\GeneralUtility::_GET()
+//);
 
 /**
  * @var $TSFE \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
@@ -56,7 +57,7 @@ $TSFE->connectToDB();
 
 $ajax = [];
 $ajax['arguments']	= $_gp;
-$ajax['vendor'] 	= 'Tp3';
+$ajax['vendorName'] 	= 'Tp3';
 $ajax['extensionName'] 	= 'Tp3ratings';
 $ajax['pluginName'] 	= 'Tp3feratings';
 $ajax['controller'] 	= 'Ratingsdata';
@@ -73,8 +74,8 @@ $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS
 $bootstrapConf['extensionName'] = $ajax['extensionName'];
 $bootstrapConf['pluginName']	= $ajax['pluginName'];
 
-$bootstrap = new \TYPO3\CMS\Extbase\Core\Bootstrap();
-$bootstrap->initialize($bootstrapConf);
+$bootstrap = new \TYPO3\CMS\Extbase\Core\Bootstrap($ajax);
+$bootstrap->initialize($ajax);
 $bootstrap->cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
 /**
@@ -82,7 +83,7 @@ $bootstrap->cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\C
  */
 $request = $objectManager->get('TYPO3\CMS\Extbase\Mvc\Request');
 
-$request->setControllerVendorName($ajax['vendor']);
+$request->setControllerVendorName($ajax['vendorName']);
 $request->setcontrollerExtensionName($ajax['extensionName']);
 $request->setPluginName($ajax['pluginName']);
 $request->setControllerName($ajax['controller']);

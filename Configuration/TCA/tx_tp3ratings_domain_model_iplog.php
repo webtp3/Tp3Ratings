@@ -82,17 +82,20 @@ return [
         'cruser_id' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.cruser_id',
             'config' => [
-                'type' => 'inline',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['Bitte wählen', ''],
+                ],
                 'foreign_table' => 'fe_users',
-                'minitems' => 0,
+                // *** 'foreign_table_where' => 'AND fe_users.uid=###REC_FIELD_cruser_id###',
+                'foreign_table_where' => 'AND fe_users.deleted = 0 ORDER BY fe_users.username',
+                'minitems' => 1,
                 'maxitems' => 1,
                 'appearance' => [
-                    'collapseAll' => 0,
-                    'levelLinksPosition' => 'top',
-                    'showSynchronizationLink' => 1,
-                    'showPossibleLocalizationRecords' => 1,
-                    'showAllLocalizationLink' => 1
-                ],
+                    'collapse' => 0,
+                    'newRecordLinkPosition' => 'bottom',
+                ]
             ],
         ],
         'crdate' => [

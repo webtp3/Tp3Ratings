@@ -87,7 +87,7 @@ class RatingsdataTest extends UnitTestCase
     public function getRefReturnsInitialValueForString()
     {
         self::assertSame(
-            '',
+            0,
             $this->subject->getRef()
         );
     }

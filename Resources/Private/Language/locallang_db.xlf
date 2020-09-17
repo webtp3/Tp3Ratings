@@ -67,6 +67,18 @@
 			<trans-unit id="tx_tp3ratings_data.vote_count" xml:space="preserve">
 				<source>Anzahl der Bewertungen:</source>
 			</trans-unit>
+			<trans-unit id="rating.description">
+				<source>rating</source>
+			</trans-unit>
+			<trans-unit id="votecount.description">
+				<source>votecount</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.template_file">
+				<source>Templatefile</source>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.storagepage">
+				<source>storage</source>
+			</trans-unit>
 			<trans-unit id="tx_tp3ratings_data.review" xml:space="preserve">
                 <source>Review:</source>
             </trans-unit>
