@@ -10,7 +10,7 @@ return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_iplog',
         'label' => 'userid',
-        'label_alt' => 'ip',
+        'label_alt' => 'ip,ref',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
