@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Domain\Model;
 
 /***
@@ -17,11 +24,11 @@ namespace Tp3\Tp3ratings\Domain\Model;
  */
 class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
- /**
-     * rating
-     *
-     * @var integer
-     */
+    /**
+        * rating
+        *
+        * @var int
+        */
     protected $rating = 5;
 
     /**
@@ -43,7 +50,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var string
      */
-    public $obj = "pages";
+    public $obj = 'pages';
 
     /**
      * tip
@@ -57,7 +64,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var array
      */
-    protected $options = array();
+    protected $options = [];
 
     /**
      * votelink
@@ -65,54 +72,53 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $votelink = '';
-    
+
     /**
      * barwidth
      *
      * @var string
      */
     protected $barwidth = '100';
-    
+
     /**
      * worstRating
      *
      * @var string
      */
     protected $worstRating = 1;
-    
+
     /**
      * ratingValue
      *
      * @var string
      */
     protected $ratingValue= '';
-    
+
     /**
      * reviewCount
      *
-     * @var integer
+     * @var int
      */
     protected $reviewCount = 0;
     /**
      * ratingCount
      *
-     * @var integer
+     * @var int
      */
     protected $ratingCount= 0;
-    
+
     /**
      * bestRating
      *
      * @var string
      */
     protected $bestRating = 5;
-    
-    
-     /**
-     * submittext
-     *
-     * @var string 
-     */
+
+    /**
+    * submittext
+    *
+    * @var string
+    */
     protected $submittext = '';
 
     /**
@@ -129,7 +135,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getTip()
     {
-    	return $this->tip;
+        return $this->tip;
     }
 
     /**
@@ -149,9 +155,9 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getVotelink()
     {
-    	return $this->votelink;
+        return $this->votelink;
     }
-    
+
     /**
      * ref
      *
@@ -159,9 +165,9 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getBarwidth()
     {
-    	return $this->barwidth;
+        return $this->barwidth;
     }
-    
+
     /**
      * worstRating
      *
@@ -169,7 +175,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getWorstRating()
     {
-    	return $this->worstRating;
+        return $this->worstRating;
     }
     /**
      * initaction
@@ -178,7 +184,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function __construct()
     {
-       // $this->
+        // $this->
     }
 
     /**
@@ -188,7 +194,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getRatingValue()
     {
-    	return round($this->rating / $this->votecount,2);
+        return round($this->rating / $this->votecount, 2);
     }
     /**
      * Returns the reviewCount
@@ -218,9 +224,9 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getRatingCount()
     {
-    	return $this->votecount;
+        return $this->votecount;
     }
-    
+
     /**
      * bestRating
      *
@@ -228,9 +234,9 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getBestRating()
     {
-    	return $this->bestRating;
+        return $this->bestRating;
     }
-    
+
     /**
      * submittext
      *
@@ -238,7 +244,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getSubmittext()
     {
-    	return $this->submittext;
+        return $this->submittext;
     }
     /**
      * submittext
@@ -258,7 +264,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function addSubmittext($submittext)
     {
-        return $this->submittext .= " & " . $submittext;
+        return $this->submittext .= ' & ' . $submittext;
     }
 
     /**
@@ -266,7 +272,7 @@ class Ratingsdata extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $rating
      */
-     public function getRating()
+    public function getRating()
     {
         return $this->rating;
     }

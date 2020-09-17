@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Domain\Repository;
 
 /***
@@ -20,11 +27,12 @@ class RatingsdataRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      *
      *
-     * @param integer $catUID
+     * @param int $catUID
      * @return Tp3\Tp3ratings\Domain\Model\Ratingsdata
      */
-    public function findbyStorgePid($customStoragePid) {
-       $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+    public function findbyStorgePid($customStoragePid)
+    {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
         $querySettings->setRespectStoragePage(false);
         //$querySettings->setStoragePageIds(array($customStoragePid));
         $this->setDefaultQuerySettings($querySettings);
@@ -41,5 +49,4 @@ class RatingsdataRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         //$query->setOrderings($this->orderByField('uid', $uidArray));
         return $query->execute();
     }
-
 }

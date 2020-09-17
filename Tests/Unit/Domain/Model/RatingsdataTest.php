@@ -1,10 +1,16 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Tests\Unit\Domain\Model;
 
 /**
  * Test case.
  *
- * @author Thomas Ruta <email@thomasruta.de>
  */
 class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 {
@@ -33,7 +39,6 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             '',
             $this->subject->getRating()
         );
-
     }
 
     /**
@@ -48,7 +53,6 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             'rating',
             $this->subject
         );
-
     }
 
     /**
@@ -60,7 +64,6 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             '',
             $this->subject->getVotecount()
         );
-
     }
 
     /**
@@ -75,7 +78,6 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             'votecount',
             $this->subject
         );
-
     }
 
     /**
@@ -87,7 +89,6 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             '',
             $this->subject->getRef()
         );
-
     }
 
     /**
@@ -102,6 +103,5 @@ class RatingsdataTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             'ref',
             $this->subject
         );
-
     }
 }

@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\ViewHelpers;
 
 /**
@@ -8,14 +15,13 @@ namespace Tp3\Tp3ratings\ViewHelpers;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-
 /**
  * ViewHelper to render the votelinks
  *
 
  *
  */
-class CountVotelinkViewHelper extends  \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
+class CountVotelinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
 {
 
     /**
@@ -27,10 +33,10 @@ class CountVotelinkViewHelper extends  \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
     ) {
         $content = '<div class="ratingsbar">';
 
-       for($i=0;$i < intval($arguments); $i++){
-           $content .= '<a href="javascript:void(0)" rel="nofollow" title="'.$i.'stars" class="tx-ratings-star-'.$i.'"><span class="texticon-inner-icon glyphicon glyphicon-star"></span></a>';
-       }
+        for ($i=0;$i < intval($arguments); $i++) {
+            $content .= '<a href="javascript:void(0)" rel="nofollow" title="' . $i . 'stars" class="tx-ratings-star-' . $i . '"><span class="texticon-inner-icon glyphicon glyphicon-star"></span></a>';
+        }
         $content .= ' </div>';
-       return $content;
+        return $content;
     }
 }

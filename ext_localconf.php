@@ -1,6 +1,12 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
 
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+defined('TYPO3_MODE') || die('Access denied.');
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Tp3.Tp3ratings',
@@ -48,7 +54,7 @@ defined('TYPO3_MODE') || die('Access denied.');
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         tp3feratings {
-                            iconIdentifier = ext-'.$_EXTKEY.'-wizard-icon
+                            iconIdentifier = ext-' . $_EXTKEY . '-wizard-icon
                             title = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_tp3feratings
                             description = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tx_tp3ratings_domain_model_tp3feratings.description
                             tt_content_defValues {
@@ -66,7 +72,7 @@ defined('TYPO3_MODE') || die('Access denied.');
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         tp3reviews {
-                        	iconIdentifier = ext-'.$_EXTKEY.'-review-wizard-icon
+                        	iconIdentifier = ext-' . $_EXTKEY . '-review-wizard-icon
                             title = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tp3ratings_tp3reviews
                             description = LLL:EXT:tp3ratings/Resources/Private/Language/locallang_db.xlf:tp3ratings_tp3reviews.description
                             tt_content_defValues {
@@ -84,8 +90,8 @@ defined('TYPO3_MODE') || die('Access denied.');
        */
         if (TYPO3_MODE === 'BE') {
             $icons = [
-                'ext-'.$_EXTKEY.'-wizard-icon' => 'user_plugin_tp3feratings.svg',
-                'ext-'.$_EXTKEY.'-review-wizard-icon' => 'user_plugin_tp3reviews.svg',
+                'ext-' . $_EXTKEY . '-wizard-icon' => 'user_plugin_tp3feratings.svg',
+                'ext-' . $_EXTKEY . '-review-wizard-icon' => 'user_plugin_tp3reviews.svg',
 
             ];
             $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
@@ -93,9 +99,7 @@ defined('TYPO3_MODE') || die('Access denied.');
                 $iconRegistry->registerIcon(
                     $identifier,
                     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-                    ['source' => 'EXT:'.$_EXTKEY.'/Resources/Public/Icons/' . $path]
+                    ['source' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/' . $path]
                 );
             }
         }
-   
-

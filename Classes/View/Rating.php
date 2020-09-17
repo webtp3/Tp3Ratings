@@ -1,5 +1,13 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\View;
+
 /*
  * This file is part of the Ajax example TYPO3 extension.
  *
@@ -11,6 +19,7 @@ namespace Tp3\Tp3ratings\View;
  * LICENSE file that was distributed with this source code.
  */
 use TYPO3\CMS\Extbase\Mvc\View\AbstractView;
+
 /**
  * Class HelloJsonView
  */
@@ -25,7 +34,6 @@ class Rating extends AbstractView
      */
     public function render()
     {
-        return json_encode(array('Hello World', $this->variables['time']));
+        return json_encode(['Hello World', $this->variables['time']]);
     }
-    
 }

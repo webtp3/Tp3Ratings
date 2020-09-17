@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Domain\Model;
 
 /***
@@ -38,8 +45,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $ratingvalue = '';
 
-
-
     /**
      * Returns the ratingvalue
      *
@@ -67,8 +72,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $cruser_id = '';
-
-
 
     /**
      * Returns the cruser_id
@@ -98,8 +101,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $session = '';
 
-
-
     /**
      * Returns the session
      *
@@ -128,8 +129,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $crdate = '';
 
-
-
     /**
      * Returns the crdate
      *
@@ -156,8 +155,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $userid = '';
-
-
 
     /**
      * Returns the userid
@@ -186,7 +183,6 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $review = '';
-
 
     /**
      * Returns the review

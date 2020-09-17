@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace Tp3\Tp3ratings\Domain\Repository;
 
 /***
@@ -21,10 +28,11 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      *
      *
-     * @param integer $catUID
+     * @param int $catUID
      * @return Tp3\Tp3ratings\Domain\Model\Iplog
      */
-    public function findbyIpandRef($ip, $pid, $sessid = "") {
+    public function findbyIpandRef($ip, $pid, $sessid = '')
+    {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
         $querySettings->setRespectStoragePage(false);
 
@@ -44,10 +52,11 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      *
      *
-     * @param integer $catUID
+     * @param int $catUID
      * @return Tp3\Tp3ratings\Domain\Model\Iplog
      */
-    public function findFeUserEmail($email,$pid) {
+    public function findFeUserEmail($email, $pid)
+    {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
         $querySettings->setRespectStoragePage(false);
 
@@ -67,21 +76,22 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      *
      *
-     * @param integer $list
+     * @param int $list
      * @return Tp3\Tp3ratings\Domain\Model\Iplog
      */
-    public function getList($list = null) {
+    public function getList($list = null)
+    {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-        $querySettings->setStoragePageIds(array($GLOBALS["TSFE"]->domainStartPage));
+        $querySettings->setStoragePageIds([$GLOBALS['TSFE']->domainStartPage]);
         $querySettings->setRespectStoragePage(false);
         $this->setDefaultQuerySettings($querySettings);
-        $uids = explode(",",$list[1]);
-        if($list != null){
-            $uids = explode(",",$list[1]);
-            $refs = explode(",",$list[0]);
+        $uids = explode(',', $list[1]);
+        if ($list != null) {
+            $uids = explode(',', $list[1]);
+            $refs = explode(',', $list[0]);
         }
 
-        if (is_array($uids) && is_array($refs)){
+        if (is_array($uids) && is_array($refs)) {
             $query = $this->createQuery();
             $query->matching(
                 $query->in('uid', $uids),
@@ -90,10 +100,8 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                     $query->equals('hidden', 0),
                     $query->equals('deleted', 0)
                 )
-
             );
-        }
-        elseif (is_array($uids)){
+        } elseif (is_array($uids)) {
             $query = $this->createQuery();
             $query->matching(
                 $query->in('uid', $uids),
@@ -101,26 +109,23 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                     $query->equals('hidden', 0),
                     $query->equals('deleted', 0)
                 )
-
             );
-        }
-        elseif (is_array($refs)){
+        } elseif (is_array($refs)) {
             $query = $this->createQuery();
             $query->matching(
                 $query->in('ref', $refs),
-                  $query->logicalAnd(
+                $query->logicalAnd(
                       $query->equals('hidden', 0),
                       $query->equals('deleted', 0)
                   )
             );
-        }
-        else{
+        } else {
             $query = $this->createQuery();
             $query->matching(
-              $query->greaterThan('review', ""),
+                $query->greaterThan('review', ''),
                 $query->logicalNot(
                     $query->equals('hidden', 1),
-                    $query->equals('review', ""),
+                    $query->equals('review', ''),
                     $query->equals('deleted', 1)
                 )
             );

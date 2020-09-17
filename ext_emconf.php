@@ -1,16 +1,12 @@
 <?php
 
-/***************************************************************
- * Extension Manager/Repository config file for ext "tp3ratings".
- *
- * Auto generated 21-05-2018 23:13
- *
- * Manual updates:
- * Only the data in the array - everything else is removed by next
- * writing. "version" and "dependencies" must not be touched!
- ***************************************************************/
+/*
+ * This file is part of the web-tp3/tp3ratings.
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
 
-$EM_CONF[$_EXTKEY] = array (
+$EM_CONF[$_EXTKEY] = [
   'title' => 'Tp3Ratings',
   'description' => 'Ratings for Webpages including microdata for google',
   'category' => 'plugin',
@@ -20,28 +16,27 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '1.4.1',
-  'constraints' => 
-  array (
-    'depends' => 
-    array (
+  'version' => '1.4.2',
+  'constraints' =>
+  [
+    'depends' =>
+    [
       'typo3' => '9.5.0-10.99.99',
-    ),
-    'conflicts' => 
-    array (
-    ),
-    'suggests' => 
-    array (
-    ),
-  ),
-  'autoload' => 
-  array (
-    'psr-4' => 
-    array (
+    ],
+    'conflicts' =>
+    [
+    ],
+    'suggests' =>
+    [
+    ],
+  ],
+  'autoload' =>
+  [
+    'psr-4' =>
+    [
       'Tp3\\Tp3ratings\\' => 'Classes',
-    ),
-  ),
+    ],
+  ],
   'clearcacheonload' => false,
   'author_company' => 'tp3',
-);
-
+];
