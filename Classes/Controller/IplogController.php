@@ -18,6 +18,7 @@ namespace Tp3\Tp3ratings\Controller;
  *  (c) 2017 Thomas Ruta <email@thomasruta.de>, R&P IT Consulting GmbH
  *
  ***/
+use TYPO3\CMS\Extbase\Annotation\Inject;
 
 /**
  * IplogController
@@ -28,7 +29,7 @@ class IplogController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * iplogRepository
      *
      * @var \Tp3\Tp3ratings\Domain\Repository\IplogRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $iplogRepository = null;
 

@@ -21,7 +21,7 @@ namespace Tp3\Tp3ratings\Controller;
 use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-
+use TYPO3\CMS\Extbase\Annotation\Inject;
 /**
  * RatingsdataController
  */
@@ -67,7 +67,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * ratingsdataRepository
      *
      * @var \Tp3\Tp3ratings\Domain\Repository\RatingsdataRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $ratingsdataRepository = null;
 
@@ -82,7 +82,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * IplogRepository
      *
      * @var \Tp3\Tp3ratings\Domain\Repository\IplogRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $iplogRepository = null;
     /**
@@ -165,7 +165,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function processRequest(\TYPO3\CMS\Extbase\Mvc\RequestInterface $request, \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response)
     {
-        if (count($request->getArguments())> 0 &&  $request->getArgument('eID') == 'rating' && $request->hasArgument('ratingdata')) {
+        if (count($request->getArguments())> 0 &&  $request->getArgument('eIDTp3') == 'rating' && $request->hasArgument('ratingdata')) {
             //&& $this->resolveActionMethodName() == "ratingAction"
             $data_str = $request->getArgument('ratingdata');
             if ($request->hasArgument('check')) {
@@ -178,7 +178,7 @@ class RatingsdataController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 // throw PageNotFoundException;
             }
         }
-        if (count($request->getArguments())> 0 &&  $request->getArgument('eID') == 'review' && $request->hasArgument('tp3reviewdata')) {
+        if (count($request->getArguments())> 0 &&  $request->getArgument('eIDTp3') == 'review' && $request->hasArgument('tp3reviewdata')) {
             //&& $this->resolveActionMethodName() == "ratingAction"
             $this->tp3reviewdata = $request->getArgument('tp3reviewdata');
             // $request->SetArgument("ratingdata", unserialize(base64_decode($data_str)));

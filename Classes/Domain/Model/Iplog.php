@@ -35,6 +35,7 @@ class Iplog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * ref
      *
      * @var \Tp3\Tp3ratings\Domain\Model\Ratingsdata
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     public $ref = null;
 

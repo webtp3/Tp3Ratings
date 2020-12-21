@@ -40,6 +40,7 @@ class IplogRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query = $this->createQuery();
         $query->matching(
             $query->equals('ip', $ip),
+//            $query->equals('hidden', 0),
             $query->logicalAnd(
                 $query->equals('hidden', 0),
                 $query->equals('ref', $pid),

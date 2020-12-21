@@ -4,8 +4,8 @@
     "description" : "ratings & microdata 4 tp3",
     "license": "GPL-2.0+",
     "require": {
-        "php": ">=5.3 <7.4",
-        "typo3/cms-core": "^9 || 10.4"
+        "php": ">=7.2 <7.4",
+        "typo3/cms-core": "^9 || ^10.4"
     },
     "autoload": {
         "psr-4": {
@@ -13,8 +13,17 @@
         }
     },
     "replace": {
-        "typo3-ter/tp3ratings": "self.version",
-        "web-tp3/tp3ratings": "self.version"
+        "typo3-ter/tp3ratings": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "tp3ratings",
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web"
+        }
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
     }
-    
 }
